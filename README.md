@@ -1,4 +1,4 @@
-# LaTex template for Computer Science thesis at UniFI
+# LaTeX thesis template for Computer Science at UniFI
 
 This repository contains a LaTeX template for a (bachelor's or master's) thesis in Computer Science carried out at the [University of Florence](https://www.unifi.it/).
 
