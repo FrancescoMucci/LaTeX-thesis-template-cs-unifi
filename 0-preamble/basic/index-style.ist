@@ -1,0 +1,57 @@
+%--------------------------------------------------------------
+%                 Analytical index style setup   
+%--------------------------------------------------------------
+
+% This style file allows us to customize the analytical index sorting and formatting throught a list of <key, value> pairs.
+
+%--------------------KEY-VALUE-PAIRS---------------------------
+
+headings_flag 1% To enable group headers with uppercase letter.
+symhead_positive "Simboli"% To set symbols group header.
+numhead_positive "Numeri"% To set numbers group header.
+heading_prefix "{\\spacedlowsmallcaps{"% To set the font for groups header.
+heading_suffix "}}\\nopagebreak\n"%  To close the brackets opened with "heading_prefix" and to discourage a page break after the header.
+delim_0 " \\dotfill\\quad "% To insert dots followed by a 1em space between an entry and its first page number.
+delim_1 " \\dotfill\\quad "% To insert dots followed by a 1em space between a sub-entry and its first page number.
+delim_2 " \\dotfill\\quad "% To insert dots followed by a 1em space between a sub-sub-entry and its first page number.
+
+%--------------------------------------------------------------
+
+%-------------DESCRIPTION-OF-USED-KEY-VALUE-PAIRS--------------
+
+% "headings_flag <flag-number>": the <flag-number> indicates the treatment for group headers, the headers inserted before each analytical index group (symbols, numbers, and the 26 letters). With the default <flag-number>, which is 0, no header will be produced; with a positive value  (e.g. 1) uppercase letter headers will be produced; with a negative value (e.g. -1) lowercase letter headers will be produced.
+
+% "symhead_positive <string>": heading for symbols to be inserted if "headings_flag" is positive; default is "Symbols".
+
+% "numhead_positive <string>": heading for numbers to be inserted if "headings_flag" is positive; default is "Numbers".
+
+% "heading_prefix <string>": group header prefix; default is "".
+
+% "heading_suffix <string>": group header suffix; default is "".
+
+% "delim_0 <string>": delimiter to be inserted between a level 0 index entry and its first page number; default is ", ".
+
+% "delim_1 <string>": delimiter to be inserted between a level 1 index entry (or sub-entry) and its first page number; default is ", ".
+
+% "delim_2 <string>": delimiter to be inserted between a level 2 index entry (or sub-sub-entry) and its first page number; default is ", ".
+
+% Note: you can use regular formatting commands for font family, font height and alignment, but the backslashes must be escaped using a double backslash instead of one.
+
+%--------------------------------------------------------------
+
+%--------------------OTHER-KEY-VALUE-PAIRS---------------------
+
+% "symhead_negative <string>": heading for symbols to be inserted if "headings_flag" is negative; default is "symbols".
+
+% "numhead_negative <string>": heading for numbers to be inserted if "headings_flag" is negative; default is "numbers"
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% As far as comments on key-value pairs are concerned, the main source is the following: https://www.overleaf.com/learn/latex/Indices/.
+
+%--------------------------------------------------------------
+
+
+

@@ -1,0 +1,141 @@
+%---------------------------------------------------------------
+%              Math related keywords for thesis
+%---------------------------------------------------------------
+
+%---------------------MATH-KEYWORDS-HELPER-COMMANDS-------------
+
+% The "\ensureMathKeyword{<name>}{<text>}" can be used to redefine commands that ordinarily can be used only in math mode, so that they can be used both in math and in plain text (using the command \ensuremath{<text>} we ensure that the text is typeset in math mode).
+
+\newcommand{\ensureMathKeyword}[2]{%
+	\keyword{#1}{\ensuremath{#2}}%
+}
+
+% The "\ensureMathbbKeyword{<name>}{<text>}" command can be used to define a math keyword, usable in plain text, with blackboard bold font (useful for set-related keywords).
+
+\newcommand{\ensureMathBBKeyword}[2]{%
+	\ensureMathKeyword{#1}{\mathbb{#2}}%
+}
+
+% NB: in math mode the "xspace" added at the end of text by "\keyword" does not work; when using this kind of keywords in math mode; so, in that mode, you need to add the required space manually using one of the following commands:
+% - "\," for a thin space (1/6 of a quad);
+% - "\:" for a medium space (2/9 of a quad);
+% - "\;" for a thick space (5/18 of a quad);
+% - "\ " for a space equivalent to a space in text mode;
+% - "\quad" for a space that is equal to the width of the current font;
+% - "\qquad" for a space double that of "\quad".
+
+% The "\mathConjKeyword{<name>}{<conj>}" command is used to define a math keyword that will be preceded and followed by a thick space: therefore, it turns out that this command is useful for defining keywords that act as "conjunction" between mathematical formulas.
+
+\newcommand{\mathConjKeyword}[2]{%
+	\newcommand{#1}{\; #2 \;}%
+}
+
+% The "\mathTextConjKeyword{<name>}{<text-conj>}" command is used to define a math "conjuction" keyword with a plain text value.
+
+\newcommand{\mathTextConjKeyword}[2]{%
+	\mathConjKeyword{#1}{\text{#2}}%
+}
+
+%---------------------------------------------------------------
+
+%---------------------SETS-OF-NUMBERS---------------------------
+
+% Natural numbers.
+%\newcommand{\N}{\ensuremath{\mathbb{N}}\xspace} 
+\ensureMathBBKeyword{\N}{N} 
+
+% Integer numbers.
+%\newcommand{\Z}{\ensuremath{\mathbb{Z}}\xspace} 
+\ensureMathBBKeyword{\Z}{Z}
+
+% Rational numbers.
+%\newcommand{\Q}{\ensuremath{\mathbb{Q}}\xspace} 
+\ensureMathBBKeyword{\Q}{Q}
+
+% Real numbers.
+%\newcommand{\R}{\ensuremath{\mathbb{R}}\xspace} 
+\ensureMathBBKeyword{\R}{R}
+
+ % Complex numbers.
+%\newcommand{\C}{\ensuremath{\mathbb{C}}\xspace}
+\ensureMathBBKeyword{\C}{C}
+
+%---------------------------------------------------------------
+
+%--------------------CUSTOM-LOGICAL-OPERATORS-------------------
+
+% Custom spaced logical AND.
+%\newcommand{\myland}{\; \land \;} 
+\mathConjKeyword{\myland}{\land}
+
+% Custom spaced logical OR.
+%\newcommand{\mylor}{\; \lor \;} 
+\mathConjKeyword{\mylor}{\lor}
+
+%---------------------------------------------------------------
+
+%--------------------TEXT-CONJUCTION-KEYWORDS-------------------
+
+%\newcommand{\e}{\; \text{e} \;}
+\mathTextConjKeyword{\e}{e}
+
+%\newcommand{\se}{\; \text{se} \;}
+\mathTextConjKeyword{\se}{se}
+
+%\newcommand{\con}{\; \text{con} \;}
+\mathTextConjKeyword{\con}{con}
+
+%\newcommand{\per}{\; \text{per} \;}
+\mathTextConjKeyword{\per}{per}
+
+%\newcommand{\allora}{\; \text{allora} \;}
+\mathTextConjKeyword{\allora}{allora}
+
+%\newcommand{\implica}{\; \text{implica} \;}
+\mathTextConjKeyword{\implica}{implica}
+
+%---------------------------------------------------------------
+
+%---------------------CUSTOM-ARROWS-----------------------------
+
+% Long two headed right arrow.
+\newcommand{\longtwoheadrightarrow}{\relbar\joinrel\twoheadrightarrow}
+
+% Long right arrow labelled with the passed argument.
+\newcommand{\xlongrightarrow}[1]{\overset{#1}{\longrightarrow}}
+
+% Dot right arrow with labelled with the passed argument.
+\newcommand{\dotxrightarrow}[1]{\; \bullet \!\!\! \xrightarrow{#1}}
+
+%---------------------------------------------------------------
+
+%--------------------CUSTOM-PARENTHESIS-------------------------
+
+% Wrap with double braket the argument: $\doublebracket{3}$ => [[3]].
+\newcommand{\doublebracket}[1]{\llbracket #1 \rrbracket} 
+
+% Tupla constructor with one argument: $\tupla{1,2,3}$ => <1,2,3>.
+\newcommand{\tupla}[1]{\langle #1 \rangle} % 
+
+%---------------------------------------------------------------
+
+%-------------------OTHER-MATH-RELATED-NEW-COMMANDS-------------
+
+% Tabulation for math environments.
+\newcommand{\tab}{\hspace{2em}} 
+
+% Custom spaced "vale che".
+\newcommand{\valeche}{,\;}
+
+% Custom spaced "tale che".
+\newcommand{\tc}{:\;}
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%----------------------------------------------------------------

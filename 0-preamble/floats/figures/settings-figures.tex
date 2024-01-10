@@ -1,0 +1,24 @@
+%---------------------------------------------------------------
+%       Settings for figures related packages for thesis
+%---------------------------------------------------------------
+
+%--------------------FIGURES-GENERAL-SETTINGS-------------------
+
+\numberwithin{figure}{chapter}
+% To number figueres by chapter.
+
+% To group the entries in the list of figures by chapter.
+\AtEndPreamble{\addtocontents{lof}{\protect\killdeactivateaddvspace}}
+
+%\graphicspath{{other/img/}} % UNNECESSARY because in "preamble-main" the internal command "\input@path" was set to holds our list of subdirectories.
+% The command "\graphicspath{list of directories inside curly braces}" declare a list of directories to search for graphics files. This allows you to later say something like "\includegraphics{image-name}" instead of having to give its path.
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%----------------------------------------------------------------

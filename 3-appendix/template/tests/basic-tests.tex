@@ -1,0 +1,209 @@
+\chapter{Template basic tests}
+\label{appendix:basic-tests}
+\acresetall
+
+\section{Appendix introduction}
+
+In this appendix we will test some basic packages used in this template and their settings.
+
+\section{Test acronym}
+
+\begin{itemize}
+\item first use: \ac{AE};
+\item second use: \ac{AE};
+\item memory reset: \acresetall \ac{AE};
+\item full: \acf{AE};
+\item short: \acs{SAE};
+\item long: \acl{TAE};
+\item long italics: \acfi{VVLAE}.
+\end{itemize}
+
+\section{Test xspace}
+
+\begin{enumerate}
+
+\item Xspace before full stop should not create a space: 
+\begin{itemize}
+	\item \textit{test}: text\xspace.
+\end{itemize}
+
+\item Xspace before round bracket should not create a space: 
+\begin{itemize}
+	\item \textit{test}: (text\xspace).
+\end{itemize}
+
+\item Xspace before square bracket should not create a space:
+\begin{itemize}
+	\item \textit{test}: [text\xspace].
+\end{itemize}
+
+\item Xspace before curly bracket should not create a space:
+\begin{itemize}
+	\item \textit{test}: \{text\xspace\}.
+\end{itemize}
+
+\item Xspace before angle bracket should not create a space:
+\begin{itemize}
+	\item \textit{test}: <text\xspace>.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test analytical index}
+
+\begin{enumerate}
+
+\item An indexed number should be in the "Numbers" group of the analytical index:
+\begin{itemize}
+\item \textit{test}: 42 \index{42}.
+\end{itemize}
+
+\item An indexed word starting with a symbol should be in the "Symbols" group of the analytical index:
+\begin{itemize}
+\item \textit{test}: £-example \index{£ example}.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test bibliography}
+
+\subsection{Entries for books}
+
+\begin{enumerate}
+\item book: \cite{author2023book};
+\item inbook: \cite{author2023inbook};
+\item incollection: \cite{author2023incollection}.
+\end{enumerate}
+
+\subsection{Entries for articles}
+
+\begin{enumerate}
+\item article: \cite{author2023article};
+\item inproceedings: \cite{author2023inproceedings};
+\item proceedings: \cite{author2023proceedings}.
+\end{enumerate}
+
+\subsection{Entries for thesis}
+
+\begin{enumerate}
+\item masters thesis: \cite{author2023mastersthesis};
+\item PhD thesis: \cite{author2023phdthesis}.
+\end{enumerate}
+
+\subsection{Entries for documentation}
+
+\begin{enumerate}
+\item manual: \cite{author2023manual};
+\item tech report: \cite{author2023techreport}.
+\end{enumerate}
+
+\subsection{Entries for unpublished material}
+
+\begin{enumerate}
+\item unpublished: \cite{author2023unpublished};
+\item booklet: \cite{author2023booklet}.
+\end{enumerate}
+
+\subsection{Entries for other} 
+
+\begin{enumerate}
+\item misc: \cite{author2023misc}.
+\end{enumerate}
+
+\subsection{Bibliography in multiple files}
+
+\begin{enumerate}
+\item entry from bibliography for argument X: \cite{x2023misc}
+\end{enumerate}
+
+\section{Test licenses}
+
+\begin{enumerate}
+
+\item Basic copyright:
+\begin{itemize}
+\item \myCopyright inside text.
+\end{itemize}
+
+\item CC Zero 1.0: 
+\begin{itemize}
+\item \CCZEROLicense inside text.
+\end{itemize}
+
+\item CC BY 4.0:
+\begin{itemize}
+\item \CCBYLicense inside text.
+\end{itemize}
+
+\item CC BY-SA 4.0:
+\begin{itemize}
+\item \CCBYSALicense inside text.
+\end{itemize}
+
+\item CC BY-ND 4.0:
+\begin{itemize}
+\item \CCBYNDLicense inside text.
+\end{itemize}
+
+\item CC BY-NC 4.0:
+\begin{itemize}
+\item \CCBYNCLicense inside text.
+\end{itemize}
+
+\item CC BY-NC-SA 4.0:
+\begin{itemize}
+\item \CCBYNCSALicense inside text.
+\end{itemize}
+
+\item CC BY-NC-ND 4.0:
+\begin{itemize}
+\item \CCBYNCNDLicense inside text.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test color box}
+
+\subsection{Simple tcolorbox}
+
+\begin{tcolorbox}
+\lipsum[4]
+\end{tcolorbox}
+
+\subsection{Breakable box with a title}
+
+\begin{tcolorbox}[breakable, title = Breakable box with a title]
+\lipsum[4]
+\end{tcolorbox}
+
+\subsection{Chaper introduction box}
+
+\begin{chapterIntroBox}
+\lipsum[4]
+\end{chapterIntroBox}
+
+\subsection{Chaper summary box}
+
+\begin{chapterSummaryBox}
+\lipsum[4]
+\end{chapterSummaryBox}
+
+\subsection{Appendix introduction box}
+
+\begin{appendixIntroBox}
+\lipsum[4]
+\end{appendixIntroBox}
+
+\subsection{My text box}
+
+\subsubsection{My text box basic usage}
+
+\begin{myTextBox}{My text box}
+This is the text inside the box.
+\end{myTextBox}
+
+\subsubsection{My text box with additional settings}
+
+\begin{myTextBox}[colframe=red]{My text box with additional settings}
+This is the text inside the box.
+\end{myTextBox}

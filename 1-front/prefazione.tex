@@ -1,0 +1,53 @@
+\chapter*{Prefazione}
+% The starred variants of all sectioning commands (\chapter*, \section*, ...) produce unnumbered headings which do not appear in the table of contents or in the page header. The absence of a running head often has an unwanted side effect: if, for example, a chapter set using \chapter* spans several pages, then the running head of the previous chapter suddenly reappears; so we need to use the command "\markboth{<left-mark>}{<right-mark>}" to customize the page header (the left-mark will normally be used in the header of even pages and right-mark in the header of odd pages; with one-sided printing, only the right-mark exists).
+\markboth{Prefazione}{Prefazione}
+
+La prefazione offre al candidato uno spazio per includere informazioni che non si adattano facilmente agli altri capitoli della tesi; ad esempio, potrebbero essere esplorate le motivazioni personali che hanno guidato la scelta dell'argomento di ricerca.
+
+\medskip
+
+Questa sezione è anche ideale per evidenziare il contributo fornito dal relatore e da eventuali altri collaboratori; inoltre, se il lavoro di ricerca è stato svolto all'interno di un gruppo, la prefazione può essere utilizzata per chiarire lo specifico apporto fornito dello studente \cite{tuni2019guide}.
+
+\medskip
+
+In aggiunta, si possono inserire informazioni utili come:
+\begin{itemize}
+\item il software antiplagio impiegato per la verifica del documento;
+\item i link alle repository GitHub correlate al lavoro di tesi;
+\item la data dell'ultima revisione del testo.
+\end{itemize}
+
+\section*{Prefazione d'esempio}
+
+Ho sviluppato questo modello per la mia tesi di laurea magistrale partendo da \href{https://www.informaticamagistrale.unifi.it/vp-17-per-laurearsi.html}{quello fornito dal Corso di Laurea Magistrale in Informatica dell'Università degli Studi di Firenze}; quest'ultimo, a sua volta, è stato elaborato utilizzando come base il pacchetto \href{https://www.ctan.org/pkg/classicthesis}{\texttt{classicthesis}}, creato da \href{https://www.miede.de/}{André Miede}.
+
+\medskip
+
+La struttura (capitoli e sezioni) del modello è stata derivata a partire dalle indicazioni fornite da:
+\begin{itemize}
+
+\item Zobel in \textit{"Writing for Computer Science"} \cite{zobel2015writing};
+
+\item Pfandzelter \etAl in \textit{"Writing a Computer Science Thesis"} \cite{pfandzelter2022thesis};
+
+\item Shoaff in \textit{"How to Write a Master's Thesis in Computer Science"} \cite{shoaff2001thesis};
+
+\item Männistö \etAl in \textit{"Scientific Writing - Guide of the Empirical Software Engineering Research Group of the University of Helsinki"} \cite{mannisto2022guide};
+
+\item Aceto in \textit{"How to Write a Paper"} \cite{aceto2023paper};
+
+\item la \textit{Tampere University} in \textit{"Guide to Writing a Thesis in Technical Fields"} \cite{tuni2019guide};
+
+\item la \textit{Libera Università di Bolzano} in \textit{"Master in Computer Science - Guidelines for the Thesis"} \cite{unibz2022thesis};
+
+\item la \textit{Harran University} in \textit{"Software Design Report"} \cite{harran2023design};
+
+\item il laboratorio \textit{Computer Science 7 (Computer Networks and Communication Systems)} della \textit{Friedrich-Alexander Universität} sulla \href{https://www.cs7.tf.fau.eu/teaching/student-theses/writing-your-thesis/}{pagina dedicata alle linee guida per la tesi} \cite{fau2023thesis}.
+
+\end{itemize}
+
+Per individuare e correggere involontarie somiglianze o citazioni non adeguate, è stato utilizzato \myAntiplagio, il software antiplagio messo a disposizione dall'Università degli Studi di Firenze.
+
+\medskip
+
+I file \latex associati a questo documento sono disponibili nella seguente repository GitHub pubblica: \myThesisRepo.

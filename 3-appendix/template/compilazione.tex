@@ -1,0 +1,70 @@
+\chapter{Generare il file PDF della tesi}
+\label{appendix:compilazione}
+
+\acresetall
+% Empty the memory of the "\ac" macro: each time you use an acronym for the first time, the full name and the short name in brackets will be printed; afterwards only the acronym will be printed.
+
+\section{Introduzione all'appendice}
+
+In questa appendice forniamo istruzioni dettagliate per generare un file PDF a partire dal documento \latex del modello di tesi. Illustreremo, inoltre, come definire un comando di compilazione rapida per l'editor \href{https://www.xm1math.net/texmaker/}{\textit{Texmaker}}.
+
+\section{Generare il file PDF da linea di comando}
+
+Per generare il file PDF della tesi, è sufficiente eseguire i seguenti comandi{\footnotemark} nella root directory della repository git:
+
+\begin{lstlisting}[language=bash]
+pdflatex -interaction=nonstopmode thesis-template.tex && \
+bibtex thesis-template.aux && \
+pdflatex -interaction=nonstopmode thesis-template.tex && \
+pdflatex -interaction=nonstopmode thesis-template.tex
+\end{lstlisting}
+
+\footnotetext{I comandi qui presentati sono stati testati utilizzando pdf{\TeX} 3.14159265-2.6-1.40.18 ({\TeX} Live 2017/Debian).}
+
+\medskip
+
+Illustriamo brevemente il loro funzionamento:
+\begin{itemize}
+
+\item il primo \texttt{pdflatex} compila il documento \latex , producendo una versione iniziale del PDF, il file ausiliario (\texttt{.aux}) e diversi altri file intermedi \cite{latex2023manual}; il PDF prodotto non è completo: mancano l'indice, gli elenchi (di figure, tabelle e codici) e la bibliografia; inoltre, le citazioni e i riferimenti a capitoli, sezioni, tabelle, figure o codici non sono ancora stati risolti;
+
+\item il secondo comando esegue Bib\TeX, il software utilizzato per gestire e formattare la bibliografia; questo analizzerà il file ausiliario generato dalla prima compilazione e i database bibliografici (\texttt{.bib}) per creare il file bibliografico \latex (\texttt{.bbl})\cite{bibtex2007faq};
+
+\item le ultime due compilazioni con \texttt{pdflatex} sono necessarie per ottenere la versione finale del documento PDF \cite{latex2023manual};
+
+\item l'opzione \texttt{-interaction=nonstopmode} consente a \latex di continuare la compilazione anche in presenza di errori o avvisi: eventuali messaggi diagnostici verranno mostrati sul terminale, ma non sarà richiesta alcuna interazione con l'utente \cite{latex2023manual}.
+
+\end{itemize}
+
+Per generare l'indice analitico non è stato eseguito alcun comando aggiuntivo: il pacchetto \texttt{imakeidx}, una volta incluso \texttt{\textbackslash makeindex} nel preambolo, consente la sua generazione in modo automatico durante la prima compilazione \cite{imakeidx2023doc}.
+
+\medskip
+
+Se al posto di \texttt{imakeidx} avessimo usato \texttt{makeidx}, sarebbe stato necessario eseguire come secondo comando \texttt{makeindex thesis-template.idx}: questo elabora l'indice analitico grezzo (\texttt{.idx}), prodotto dalla prima compilazione, per creare la sua versione finale (\texttt{.ind}) \cite{latex2023manual}.
+
+\section{Compilazione rapida su Texmaker}
+
+Se stiamo utilizzando l'editor \href{https://www.xm1math.net/texmaker/}{\textit{Texmaker}}, possiamo adattare quanto visto nella sezione precedente per definire il seguente comando di compilazione rapida:
+
+\begin{lstlisting}[language=bash]
+pdflatex -synctex=1 -interaction=nonstopmode %.tex|
+bibtex %.aux|
+pdflatex -synctex=1 -interaction=nonstopmode %.tex|
+pdflatex -synctex=1 -interaction=nonstopmode %.tex|
+evince %.pdf
+\end{lstlisting}
+
+\medskip
+
+Evidenziamo le modifiche apportate:
+\begin{itemize}
+
+\item ai comandi \texttt{pdflatex} abbiamo aggiunto l'opzione \texttt{-synctex=1}; questa attiva \textit{SyncTeX}, una funzionalità che crea sincronizzazione tra il codice sorgente e il PDF generato, consentendo la navigazione bidirezionale tra i due \cite{texmaker2023manual};
+
+\item al posto di \texttt{thesis-template}, usiamo il simbolo \texttt{\%}, un segnaposto che verrà automaticamente sostituito con il nome del file in elaborazione \cite{texmaker2023manual};
+
+\item è stata aggiunta l'istruzione finale \texttt{evince \%.pdf} che apre il PDF generato in \textit{Evince} (un visualizzatore di PDF per Linux).
+
+\end{itemize}
+
+Se invece del pacchetto \texttt{imakeidx} usassimo \texttt{makeidx}, dovremmo modificare il comando di compilazione rapida aggiungo \texttt{makeindex \%.idx|} subito dopo il primo \texttt{pdflatex}.

@@ -1,0 +1,54 @@
+\chapter{Template code tests}
+\label{appendix:code-tests}
+\acresetall
+
+\section{Appendix introduction}
+
+In this appendix we will test some code related LaTeX packages used in this template and their settings.
+
+\section{HTML tests}
+
+In \cref{code:html} we see an example of HTML code.
+
+\begin{lstlisting}[language={MyHTML}, label={code:html},
+caption={[HTML example]just a random HTML example.}]
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<footer th:fragment="fragment" class="site-footer font-small fixed-bottom">
+<div class="text-center py-3">&copy; 2021 Copyright: Francesco Mucci</div>
+</footer>
+</body>
+</html>
+\end{lstlisting}
+
+\section{Solidity tests}
+
+In \cref{code:solidity} we see an example of solidity code.
+
+\begin{lstlisting}[language=Solidity, label={code:solidity},
+caption={[Solidity example]just a dummy Solidity example.}]
+pragma solidity 0.5.13;
+
+contract MyTestContract {
+    
+	string private testString = "space: tab:	";
+	
+	function setTestString (string _string) {
+	    testString = _string;
+	}
+	
+	function getTestString() constant returns (string) {
+	    return testString;
+	}
+
+}
+\end{lstlisting}
+
+\section{Java tests}
+
+In \cref{code:java} we see an example of a floating java code.
+
+\lstinputlisting[language={MyJava}, label={code:java}, float,%
+firstline={14}, lastline={47},%
+caption={[Java example]just a random Java example.}]{other/src/test/MyBookService.java}

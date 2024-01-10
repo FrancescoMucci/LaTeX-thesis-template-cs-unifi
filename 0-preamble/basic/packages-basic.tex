@@ -1,0 +1,98 @@
+%--------------------------------------------------------------
+%                 Basic packages for thesis   
+%--------------------------------------------------------------
+
+%--------------------USED-BASIC-PACKAGES-----------------------
+
+% To load a package the command "\usepackage[<options list>]{<pkg-name>}" must be used in the document preamble, between the "\documentclass" declaration and the "\begin{document}". To specify more than one package you can separate them with a comma, as in "\usepackage{<pkg1>,<pkg2>,...}", or use multiple "\usepackage" commands.
+
+\usepackage{geometry}
+% The "geometry" package provides a flexible and easy interface to page dimensions. You can change the page layout with intuitive parameters.
+
+\usepackage[italian]{babel}
+% The "babel" package which enables LaTeX to typeset in many different languages.
+
+\usepackage[fixlanguage]{babelbib}
+% The "babelbib" package enables the user to generate multilingual bibliographies in cooperation with babel: add the option "fixlanguage" to the package call so that all bibliographies are typeset in the document’s main language.
+
+\usepackage[utf8]{inputenc}
+% The package "inputenc" translates various standard and other input encodings into a LaTeX internal language. It is used by LaTeX to correctly interpret the characters entered in the editor. "utf8" is the input encoding which allows you to write the signs of numerous alphabets in the editor directly from the keyboard, avoiding having to load the encoding suitable for the language of the document each time.
+
+\usepackage[square,numbers]{natbib} % LOAD BEFORE "hyperref".
+% The "natbib" package permit to customise citations when using BibTeX (a tool for bibliography which comes bundled as standard with LaTeX). This package consist of a reimplementation of the LaTeX "\cite" command, to work with both author–year ("authoryear" option) and numerical citations ("numbers" option). The "square" option says that references are to be enclosed in square bracket rather than round parentheses. It is compatible with the packages: "babel", "index", "citeref", "showkeys", "chapterbib", "hyperref", "koma" and with the classes "amsbook" and "amsart".
+
+\usepackage[format=hang, font=small, labelformat=simple, labelsep=colon]{caption}
+% The "caption" package provides many ways to customise the captions in floating environments like figure and table, and cooperates with many other packages. With "format=hang" the caption text will be indented, so it will "hang" under the first line of the text. With "font=small" a small size font will be used for the caption. With the "labelformat=simple" the caption label will be typeset as a name and a number. With "labelsep=colon" the caption label and text will be separated by a colon and a space.
+
+% COMMENTED OUT in "dia-classicthesis-ldpkg" because loaded with only the "footnote" option.
+\usepackage[printonlyused, smaller]{acronym}
+% The "acronym" provides an environment to define a list of acronym and to automatically build a table normally consisting of all defined acronyms, re-gardless if the the acronym was used in the text or not; to print only the acronym used at least once, use the option "printonlyused" (you can add to each acronym the the page number where it was first used by additionally specifying the option "withpage"). The first time you use a defined acronym, the full name of the acronym along with the acronym in brackets will be printed; if you specify the "footnote" option, the full name of the acronym will be printed as a footnote. The "smaller" option lets the acronyms appear a bit smaller (the "relsize" package is required). This package requires the "suffix" package, which in turn requires that it runs under e-TEX. The acronyms will be definied in the file "4-back/acronimi.tex" inside an "acronym" environment.
+
+\usepackage{imakeidx} % LOAD BEFORE "hyperref".
+% The "imakeidx" package enables the user to produce and typeset one or more indexes simultaneously with a document. This package rely upon "makeindex" TeX system programs to sort and format the index entries: to get an index you must first include "\makeindex" in the document preamble and compile the document. To add an entry to the index the command "\index{}" is used, where the word to be added is inserted as the parameter. Be careful, this won't print the word in the current position but only in the index. To obtain a linkable index, load "imakeidx" before "hyperref" (generally, "hyperref" should be loaded last, though there are some exceptions).
+
+\usepackage{etoolbox}
+% The "etoolbox" package is a toolbox of programming facilities geared primarily towards LaTeX class and package authors. It provides LaTeX frontends to some of the new primitives provided by e-TeX as well as some generic tools which are not related to e-TeX but match the profile of this package. For example, this package provides us with the "\AtEndPreamble{<code>}" which can be used to postpone the execution of the specified <code> at the end of the preamble.
+
+\usepackage{hyphenat}
+% The "hyphenat" package can disable all hyphenation or enable hyphenation of non-alphabetics or monospaced fonts; this package also enable hyphenation within words that contain non-alphabetic characters and hyphenation of text typeset in monospaced fonts. In particular TeX does not hyphenate already hyphenated word, such as "electromagnetic-endioscopy"; in this case, the "\hyp" command can be used to allow automatic hyphenation of compound words: e.g. "electromagnetic{\hyp}endioscopy".
+
+\usepackage{needspace}
+% The "needspace" package provides two commands, "\needspace" and "\Needspace", for reserving space to prevent a certain amount of material from being split over a page break. If there is not enough space, a "\newpage" is automatically inserted.
+
+\usepackage{lipsum}
+% The "lipsum" package gives you easy access to 150 paragraphs of the Lorem Ipsum dummy text.
+
+%--------------------------------------------------------------
+
+%--------------BASIC-PACKAGES-LOADED-BY-CLASSICTHESIS----------
+
+%\usepackage[T1]{fontenc} % WILL BE LOADED by "dia-classicthesis-ldpkg".
+% The "fontenc" package allows the user to select font encodings, and for each encoding provides an interface to font-encoding-specific commands for each font. Its most powerful effect is to enable hyphenation to operate on texts containing any character in the font. "T1" is the output encoding for writing in Italian and in many other western languages.
+
+%\usepackage{textcomp} % WILL BE LOADED by "dia-classicthesis-ldpkg".
+% The "textcomp" package supports the Text Companion fonts, which provide many text symbols (such as baht, bullet, copyright, musicalnote, onequarter, section, and yen), in the TS1 encoding. Note that the package has been adopted as part of the LATEX distribution.
+
+%\usepackage{relsize} % WILL BE LOADED by "dia-classicthesis-ldpkg".
+% The "relsize" package defines several commands to set font sizes relative to the current size: the basic command is "\relsize{<i>}" that change font size by <i> steps; starting from this, other command are defined such as "\larger[<i>]", "\smaller[<i>]" witch increase or reduce size by <i> steps (default 1).
+
+%\usepackage{xspace} % WILL BE LOADED by "classicthesis".
+% The "xspace" package provides the "\xspace" command that should create a space if the macro is used in text but no space if it is at the end of a sentence and followed by a full stop. This command should be used at the end of the definition of new commands which are designed to be used mainly in text. The technique used by this macro is not perfect, but works in a large proportion of cases.The package is part of the latex-tools bundle in the LaTeX required distribution.
+
+%\usepackage{tocloft} % WILL BE LOADED by "classicthesis".
+% The "tocloft" package provides means of controlling the typographic design of the "Table of Contents", "List of Figures" and "List of Tables"; also, new kinds of "List of..." can be defined.
+
+%\usepackage{titlesec} % WILL BE LOADED by "classicthesis".
+% The "titlesec" package provides an interface to sectioning commands for selection from various title styles; also includes a package to change the page styles when there are floats in a page and to assign headers/footers to individual floats.
+
+%\usepackage{scrlayer-scrpage} % WILL BE LOADED by "classicthesis".
+% The "scrlayer-scrpage" package is the part of the Koma-Script bundle that provides an end user interface to "scrlayer"; it allows the user to define and manage page styles by controlling page headers and footers.
+
+%\usepackage{footmisc} % WILL BE LOADED by "classicthesis".
+% The "footmisc" package permit to change the typesetting and the layout of footnotes. With the "para" option, footnotes will be to set inside paragraphs; with the "perpage" option footnotes will be numbered per page; with "multiple" option you can deal with multiple references to footnotes from the same place. This package also has a range of techniques for labelling footnotes with symbols rather than numbers.
+
+%--------------------------------------------------------------
+
+%--------------------UNUSED-BASIC-PACKAGES---------------------
+
+%\usepackage{enumitem}
+% This package provides user control over the layout of the three basic list environments: enumerate, itemize and description.
+
+%\usepackage{comment}
+% The "comment" package permit to selectively include/exclude pieces of text, allowing the user to define comments. All text between "\comment" ... "\endcomment" or "\begin{comment}" ... "\end{comment}" is treated as comments and discarded. The opening and closing commands should appear on a line of their own. No starting spaces, nothing after it.
+
+%\usepackage{appendix}
+% The "appendix" package provides some facilities for modifying the typesetting of appendix titles. The appendix package provides some commands that can be used in addition to the "\appendix" command.
+
+%\usepackage{url}
+% The "url" package defines "\url{...}" command intended for formatting email addresses, hypertext links, directories/paths, etc., which normally have no spaces. This command allows linebreaks at certain characters or combinations of characters and can usually be used in the argument to another command.  The font used may be selected using the \urlstyle command, and new url-like commands may be defined using \urldef. The command does not make hyper-links.
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%--------------------------------------------------------------

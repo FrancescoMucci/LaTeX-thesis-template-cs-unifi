@@ -1,0 +1,56 @@
+%--------------------------------------------------------------
+%    Floats (tables and figures) related packages for thesis   
+%--------------------------------------------------------------
+
+%--------------------FLOATS------------------------------------
+
+% Floats are containers for things in a document that cannot be broken over a page. LaTeX by default recognizes "table" and "figure" floats, but you can define new ones of your own. Floats are there to deal with the problem of the object that won't fit on the present page and to help when you really don't want the object here just now. Floats are not part of the normal stream of text, but separate entities, positioned in a part of the page to themselves (top, middle, bottom, left, right, or wherever the designer specifies). They always have a caption describing them and they are always numbered so they can be referred to from elsewhere in the text. LaTeX automatically floats Tables and Figures, depending on how much space is left on the page at the point that they are processed. If there is not enough room on the current page, the float is moved to the top of the next page. This can be changed by moving the Table or Figure definition to an earlier or later point in the text, or by adjusting some of the parameters which control automatic floating.
+
+% Source: https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions.
+
+%--------------------------------------------------------------
+
+%--------------USED-FLOAT-PACKAGES-----------------------------
+
+%--------------------------------------------------------------
+
+%--------------FLOATS-PACKAGES-LOADED-BY-CLASSICTHESIS---------
+
+%\usepackage{caption} % WILL BE LOADED by "dia-classicthesis-ldpkg".
+% The "caption" package provides many ways to customise the captions in floating environments like figure and table, and cooperates with many other packages. Facilities include rotating captions, sideways captions, continued captions (for tables or figures that come in several parts).
+
+%\usepackage{subfig} % WILL BE LOADED by "dia-classicthesis-ldpkg".
+% The "subfig" package provides support for the inclusion of small, "sub", figures and tables. This package simplifies the positioning, captioning and labeling of such objects within a single figure or table environment and enable to continue a figure or table across multiple pages. The "subfig" package requires the "caption" and replaces the older "subfigure" package.
+
+%--------------UNUSED-FLOAT-PACKAGES---------------------------
+
+%\usepackage{float} % LOAD BEFORE "hyperref".
+% The "float" package improves the interface for defining floating objects such as figures and tables. Introduces the boxed float, the ruled float and the plaintop float. You can define your own floats and improve the behaviour of the old ones. 
+
+%\usepackage{wrapfig}
+% The "wrapfig" package allows figures or tables to have text wrapped around them. Does not work in combination with list environments, but can be used in a parbox or minipage, and in twocolumn format. Supports the float package.
+
+%\usepackage{lscape}
+% The "lscape" package permit us to place selected parts of a document in landscape: modifies the margins and rotates the page contents but not the page number. Useful, for example, with large multipage tables, as it is compatible with longtable and supertabular.
+
+%--------------------------------------------------------------
+
+%--------------------TABLES-PACKAGES---------------------------
+
+\input{tables/packages-tables}
+
+%--------------------------------------------------------------
+
+%--------------------FIGURES-PACKAGES--------------------------
+
+\input{figures/packages-figures}
+
+%--------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%---------------------------------------------------------------

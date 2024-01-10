@@ -1,0 +1,36 @@
+\chapter*{Acronimi}
+% The starred variants of all sectioning commands (\chapter*, \section*, ...) produce unnumbered headings which do not appear in the table of contents or in the page header. The absence of a running head often has an unwanted side effect: if, for example, a chapter set using \chapter* spans several pages, then the running head of the previous chapter suddenly reappears; so we need to use the command "\markboth{<left-mark>}{<right-mark>}" to customize the page header (the left-mark will normally be used in the header of even pages and right-mark in the header of odd pages; with one-sided printing, only the right-mark exists).
+\markboth{Acronimi}{Acronimi}
+
+% Using the "acronym" package, inside an environment with the same name, you can define a list of acronym and automatically build a table consisting of all the acronyms used inside the document. Each acronym can be defined with the command "\acro{<acronym>}[<short name>]{<full name>}"; if you want to alter the typesetting, you can use the optional argument <short name>: for example, an acronym for water could be "\acro{H2O}[$\mathrm{H_2O}$]{water}". The width of the acronym-column of the produced table can be fitted to the width of the longest acronym by passing that acrynom as an optionl parameter for the environment: for example, if "EAMML" is the longest acronym used, the list should start with "\begin{acronym}[VVLAE]".
+
+\begin{acronym}[VVLAE]
+	\acro{AE}{Acronym Example}
+	\acro{SAE}{Second Acronym Example}
+	\acro{TAE}{Third Acronym Example}
+	\acro{NMA}{Not Marked Acronym}
+	\acro{VVLAE}{Very Very Long Acronym Example}
+	\acro{UAE}{Unused Acronym Example}
+	\acro{AKE}{Acronym Keyword Example}
+    \acro{IAKE}{Idx Acro Keyword Example}
+    \acro{AIAKE}{Auto Indexed Acronym Keyword Example}
+\end{acronym}
+
+% To enter an acronym inside the text, use the command "\ac[<linebreak penalty>]{<acronym>}". . When an acronym is being used for the first time (with the "footnote" option not specified), if it is used next to the end of the line, a line break between the full name of the acronym and the acronym in brackets can be encountered: the optional variable represents the penalty level of breaking the line at that place, taking integer values between 0 and 4 (a higher number corresponds to a higher penalty). The ’memory’ of the macro "\ac" can be flushed by calling the macro "\acresetall"; afterwards the "\ac" command will print the full name of any acronym and the acronym in brackets the next time it is used.
+
+% Some other useful command for acronyms:
+% - \Ac		same as \ac, but starts the long form with an upper case letter (NOT WORKING);
+% - \acf	prints the full name and the acronym in brackets;
+% - \acfi	same as \acf, but prints the full name in italics;
+% - \acs	prints only the acronym;
+% - \acl 	prints only the full name;
+% - \acused marks an acronym as used but without printing anything.
+% There are other commands that combine the functionality of those just listed (for an exhaustive list consult the official documentation).
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%---------------------------------------------------------------

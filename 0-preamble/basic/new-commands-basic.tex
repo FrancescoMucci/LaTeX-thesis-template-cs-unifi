@@ -1,0 +1,141 @@
+%--------------------------------------------------------------
+%                Basic new commands for thesis
+%--------------------------------------------------------------
+
+%----------------------SMART-CLEAR-PAGE------------------------
+
+% We defines the new command "\smartClearPage", it will execute "\cleardoublepage" if the twoside option is active (common in book class for double-sided printing), and "\clearpage" otherwise (typical for single-sided documents like articles or reports).
+
+\makeatletter
+\newcommand{\smartClearPage}{%
+	\if@twoside%
+		\cleardoublepage%
+	\else%
+		\clearpage%
+	\fi%
+}
+\makeatother
+
+% The "\clearpage" command can be used to end the current page and start a new one. This command is typically used to ensure that a new chapter or section starts on a fresh page, or to separate distinct parts of your document. This command doesn't care about whether the page is odd or even, so the new page will immediately follow the current one.
+
+% The "\cleardoublepage" command is similar to "\clearpage", but it goes a step further for documents that are double-sided (like books or theses). When you use "\cleardoublepage", LaTeX will end the current page and then insert blank pages as necessary to ensure that the next page is a right-hand page. This is important in double-sided documents to maintain consistency, where new chapters traditionally start on the right-hand side.
+
+% The "\makeatletter" and "\makeatother" commands are used to change the category code of "@" so that it can be used in command names. This is necessary because "\if@twoside" contains an "@" symbol, which is not normally allowed in command names in LaTeX's user mode.
+
+%--------------------------------------------------------------
+
+%----------------------ADD-TOC-LINE----------------------------
+
+% We define the "\addTocLine{<unit>}{<text>}" command for adding entries to the table of contents. The firts argument is expected to be the name of a sectional unit: "part", "chapter", "section", "subsection", etc. The second argument is the text of the entry.
+
+\newcommand{\addTocLine}[2]{%
+	\phantomsection%
+	\addcontentsline{toc}{#1}{#2}%
+}
+
+% The "\phantomsection" command, from the "hyperref" package, sets an anchor at its location; without it, the hyperlink in the table of contents might lead to an incorrect or unintended location.
+
+% The "\addcontentsline" command is used to create the corresponding line inside the toc.
+
+%--------------------------------------------------------------
+
+%----------------------ADD-TOC-CHAPTER-------------------------
+
+% We define the "\addTocChapter{<text>}" command for adding unnumbered chapter entries to the table of contents. The only argument is the text of the entry.
+
+\newcommand{\addTocChapter}[1]{%
+    \smartClearPage%
+	\addTocLine{chapter}{#1}%
+}
+
+% The use of "\clearpage" (or "\cleardoublepage" for double-sided documents) is essential before adding an unnumbered chapter to the ToC: without it, the hyperlink created by the "hyperref" package might incorrectly point to the previous page, rather than to the page where the new chapter actually begins.
+
+%--------------------------------------------------------------
+
+%----------------------ADD-PDF-BOOKMARK------------------------
+
+% We define the "\addPdfBookmark[<level>]{<text>}{<name>}" command for creates a bookmark with the specified <text> and at the given <level> (default is 0). The third argument is name of the internal anchor (so it must be unique).
+
+\newcommand{\addPdfBookmark}[3][0]{%
+	\phantomsection%
+	\pdfbookmark[#1]{#2}{#3}%
+}
+
+% The "\phantomsection" command, from the "hyperref" package, sets an anchor at its location; without it, the hyperlink in the table of contents might lead to an incorrect or unintended location.
+
+% The "\pdfbookmark" command, from the "hyperref" package, creates the bookmark.
+
+%--------------------------------------------------------------
+
+%----------------------ADD-CHAPTER-PDF-BOOKMARK----------------
+
+% We define the "\addChapterBookmark{<text>}{<name>}" command for creates a bookmark for a chapter (at level 0) with the specified <text>. The third argument is name of the internal anchor (so it must be unique).
+
+\newcommand{\addChapterBookmark}[2]{%
+    \smartClearPage%
+    \addPdfBookmark{#1}{#2}%
+}
+
+% The use of "\clearpage" (or "\cleardoublepage" for double-sided documents) is essential before adding a bookmark for an unnumbered chapter: without it the hyperlink created by the "hyperref" package might incorrectly point to the previous page, rather than to the page where the new chapter actually begins.
+
+%--------------------------------------------------------------
+
+%----------------------SMART-SECTION-CLEAR---------------------
+
+% The "\smartSectionClear" command is designed to be used before starting a new section. This ensures that if the section is likely to start close to the bottom of the current page, the command will force a page break, causing the section to begin at the top of the next page. This helps in avoiding situations where a new section or a paragraph starts at the very bottom of a page, leaving little room for text and making the document look cluttered.
+
+% First version:
+%\newcommand{\smartSectionClear}{%
+%	\ifdim\dimexpr\pagegoal-\pagetotal\relax<3\baselineskip%
+%		\clearpage%
+%	\fi
+%}
+
+% The first version of the "smartSectionClear" command estimates the space left on the page and inserts a "\clearpage" if there is less than 3 lines of space remaining. Using "\clearpage" is essential before a section that starts on a new page to ensure correct hyperlinking. Without it, the hyperlink created by the "hyperref" package might incorrectly point to the previous page, rather than the page where the new section actually begins.
+
+% PROBLEM with the first version: on rare occasions, it adds a "\clearpage" even if there is enough space and I do not understand why.
+
+% Second version:
+%\newcommand{\smartSectionClear}{%
+%	\needspace{3\baselineskip}
+%}
+
+% The second version of the "smartSectionClear" command use the "\needspace" command, from the "needspace" package, to check if there is enough space left on the current page for approximately the height of three lines of text. If there isn't enough space for these three lines, a "\newpage" is automatically inserted. The \newpage command simply starts a new page, while the "\clearpage" command, used in the previous version, not only starts a new page but also ensures that all pending floats are placed before the new page begins.
+
+% PROBLEM with the second version: sometimes, when a section starts on a new page, the hyperlink created by the "hyperref" package incorrectly points to the previous page, rather than to the page where the new section actually begins. In this particular case, we can add a "\clearpage" before the problematic section to resolve the problem.
+
+% Third version:
+\newcommand{\smartSectionClear}{%
+	\needspace{3\baselineskip}
+	\ifdim\dimexpr\pagegoal-\pagetotal\relax<3\baselineskip%
+		\clearpage%
+	\fi
+}
+
+% The third version of the "smartSectionClear" command combines the functionality of the "needspace" package with an additional check to potentially add a "\clearpage". 
+
+% Automate the execution of the "\smartSectionClear" command:
+% -----------------------------------------------------------
+
+% The "\AddToHook" feature, which allows the automatic execution of the "\smartSectionClear" command before each instance of the "\section" command, was introduced in LaTeX from the 2021 version onwards. However, this template was developed using pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian), which does not support that feature. We can achieve similar behavior using the "\pretocmd" command from the "etoolbox" package.
+
+\pretocmd{\section}{\smartSectionClear}{}{}
+% Pre-appends the "\smartSectionClear" command to the "\section" command.
+
+\pretocmd{\subsection}{\smartSectionClear}{}{}
+% Pre-appends the "\smartSectionClear" command to the "\subsection" command.
+
+\pretocmd{\subsubsection}{\smartSectionClear}{}{}
+% Pre-appends the "\smartSectionClear" command to the "\subsubsection" command.
+
+%--------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system. 
+
+% Another reference used here is "LaTeXpedia" by Lorenzo Pantieri, 2021, http://www.lorenzopantieri.net/LaTeX_files/LaTeXpedia.pdf.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%--------------------------------------------------------------

@@ -1,0 +1,176 @@
+%---------------------------------------------------------------
+%          Settings for math related packages for thesis
+%---------------------------------------------------------------
+
+%------------------------AMSTHM-DOCS----------------------------
+
+% The "\newtheorem{<env-name>}{<head-text>}" command requires as the first argument the environment name and, as the second one, the heading text: e.g. "\newtheorem{thm}{Theorem}" means that in the document you can use "\begin{thm} ... \end{thm}" to produce a theorem environment with "Theorem" as heading text. 
+
+% By default an automatically generated number will be assigned to the theorem; as optional argument we can use "[chapter]" or "[section]", so that the theorem will be numbered by chapter or by section: the counter will be reset to 0 whenever the parent counter chapeter/section is incremented and the theorem heading will have the chapter/section number prepended. You can also number, for example, lemmas and corollaries by theorem using the corresponding environment name (e.g. [thm]) as optional parameter.
+
+% Each kind of theorem-like environment (e.g. theorem, lemma) is numbered independently: if you have one lemmas and then two theorems, they will be numbered as follow: "Lemma 1", "Lemma 2", "Theorem 1". If you want lemmas and theorems to share the same numbering sequence (e.g "Lemma 1", "Lemma 2", "Theorem 3"), then you should add the <env-name> used for the Theorem environment as secondo parameter for the Lemma environment definition: "\newtheorem{lem}[thm]{Lemma}"
+
+% The theorem styles provide different degrees of visual emphasis corresponding to their relative importance. The "plain" style is the default, it use italic text and has extra space above and below. The "definition" use upright text and has extra space above and below. The "remark" use upright text and have no extra space above or below. To specify different styles, divide your "\newtheorem" commands into groups and preface each group with the appropriate "\theoremstyle".
+
+% If "\newtheorem*" is used instead of "\newtheorem", numbers will not be generated automatically for any of the theorems in the document.
+
+% By placing a "\swapnumbers" command at the beginning of the list of "\newtheorem" statements that should be affected, the theorem number will be at the beginning of the heading instead of at the end, for example “1.4 Theorem” instead of “Theorem 1.4”.
+
+% The predefined proof environment produces the heading “Proof” with appropriate spacing and punctuation. An optional argument of the proof environment allows you to substitute a different name for the standard “Proof”: e.g. if you want the proof heading to be, say, "Proof of the Main Theorem", then write "\begin{proof}[Proof of the Main Theorem]". A QED symbol is automatically appended at the end of a proof environment. Placement of the QED symbol can be problematic if the last part of a proof environment is a displayed equation or list environment: in that case put a "\qedhere" command at the place where the QED symbol should appear.
+
+%---------------------------------------------------------------
+
+%------------------AMSTHM-PLAIN-ENVIRONMENTS--------------------
+
+\theoremstyle{plain}
+
+% Definition of "\newplaintheorem{<env-name>}{<head-text>}" for defining a "plain" theorem environment numbered according to a passed parameter.
+\newtheorem{innerplaintheorem}{\plaintheoremname}
+\providecommand{\plaintheoremname}{}
+\newcommand{\newplaintheorem}[2]{
+  \newenvironment{#1}[1]{
+   \renewcommand\plaintheoremname{#2}
+   \renewcommand\theinnerplaintheorem{##1}
+   \innerplaintheorem}
+   {\endinnerplaintheorem}
+}
+
+% Proposition (or statement): is a sentence that is either true or false but not both.
+\newtheorem{proposizione}{Proposizione}[chapter]
+
+% Proposition numbered according to a passed parameter.
+\newplaintheorem{proposizione-num}{Proposizione}
+% E.g. "\being{proposizione-num}{8.2.3} ... \end{proposizione-num}".
+
+% Lemma (or helping-theorem or auxiliary-theorem): a true proposition used as a stepping stone to prove other proposition.
+\newtheorem{lemma}{Lemma}[chapter]
+
+% Lemma environment numbered according to a passed parameter.
+\newplaintheorem{lemma-num}{Lemma}
+
+% Theorem: a proposition that has been proven to be true.
+\newtheorem{teorema}{Teorema}[chapter]
+
+% Theorem environment numbered according to a passed parameter.
+\newplaintheorem{teorema-num}{Teorema}
+
+% Corollary: a true proprosition that is a simple deduction from a theorem or proposition.
+\newtheorem{corollario}{Corollario}[chapter]
+
+% Corollary environment numbered according to a passed parameter.
+\newplaintheorem{corollario-num}{Corollario}
+
+% Conjecture: a proposition believed to be true, but for which we have no proof.
+\newtheorem{congettura}{Congettura}[chapter]
+
+% Conjecture environment numbered according to a passed parameter.
+\newplaintheorem{congettura-num}{Congettura}
+
+%---------------------------------------------------------------
+
+%----------------AMSTHM-DEFINITION-ENVIRONMENTS-----------------
+  
+\theoremstyle{definition}
+
+% Definition of "\newdefinitiontheorem{<env-name>}{<head-text>}" for defining a "definition" theorem environment numbered according to a passed parameter.
+\newtheorem{innerdefinitiontheorem}{\definitiontheoremname}
+\providecommand{\definitiontheoremname}{}
+\newcommand{\newdefinitiontheorem}[2]{
+  \newenvironment{#1}[1]{
+   \renewcommand\definitiontheoremname{#2}
+   \renewcommand\theinnerdefinitiontheorem{##1}
+   \innerdefinitiontheorem}
+   {\endinnerdefinitiontheorem}
+}
+
+% Definition: an explanation of the mathematical meaning of a word.
+\newtheorem{definizione}{Definizione}[chapter]
+
+% Definition environment numbered according to a passed parameter.
+\newdefinitiontheorem{definizione-num}{Definizione}
+
+% Axiom: a basic assumption about a mathematical situation (a statement we assume to be true).
+\newtheorem{assioma}{Assioma}[chapter]
+
+% Axiom environment numbered according to a passed parameter.
+\newdefinitiontheorem{assioma-num}{Assioma}
+  
+% Problem
+\newtheorem{problema}{Problema}[chapter]
+
+% Problem environment numbered according to a passed parameter.
+\newdefinitiontheorem{problema-num}{Problema}
+
+% Example
+\newtheorem{esempio}{Esempio}[chapter]
+
+% Example environment numbered according to a passed parameter.
+\newdefinitiontheorem{esempio-num}{Esempio}
+
+% Exercise
+\newtheorem{esercizio}{Esercizio}[chapter]
+
+% Exercise environment numbered according to a passed parameter.
+\newdefinitiontheorem{esercizio-num}{Esercizio}
+
+% Algorithm
+\newtheorem{algoritmo}{Algoritmo}[chapter]
+
+% Algorithm environment numbered according to a passed parameter.
+\newdefinitiontheorem{algoritmo-num}{Algoritmo}
+
+%---------------------------------------------------------------
+
+%------------------AMSTHM-REMARK-ENVIRONMENTS-------------------
+
+\theoremstyle{remark}
+
+% Definition of "\newremarktheorem{<env-name>}{<head-text>}" for defining a "remark" theorem environment numbered according to a passed parameter.
+\newtheorem{innerremarktheorem}{\remarktheoremname}
+\providecommand{\remarktheoremname}{}
+\newcommand{\newremarktheorem}[2]{
+  \newenvironment{#1}[1]{
+   \renewcommand\remarktheoremname{#2}
+   \renewcommand\theinnerremarktheorem{##1}
+   \innerremarktheorem}
+   {\endinnerremarktheorem}
+}
+
+% Note
+\newtheorem{nota}{Nota}[chapter]
+
+% Note environment numbered according to a passed parameter.
+\newremarktheorem{nota-num}{Nota}
+
+\newtheorem{futuro}{Sviluppo Futuro}[chapter]
+\newtheorem{limitazione}{Limitazione}[chapter]
+\newtheorem{p2k}{Protocollo P2K}[chapter]
+\newtheorem{domanda}{Domanda}[chapter]
+\newtheorem{assunzioni}{Assunzioni}[chapter]
+\newtheorem{requisiti}{Requisiti}[chapter]
+\newtheorem{security}{Nota di Security}[chapter]
+
+%---------------------------------------------------------------
+
+%--------------------TIKZ-AUTOMATA-SETTINGS---------------------
+
+% Settings necessary to draw finite state automata using the "tikz" package.
+
+\usetikzlibrary{arrows, arrows.meta, automata, positioning, shapes} 
+% Import useful "tikz" libraries.
+
+\tikzset{elliptic state/.style={draw, ellipse, font=\footnotesize}}
+% To draw elliptic states using the "footnotesize" font for state names.
+
+\tikzset{every edge/.append style={font=\footnotesize}}
+% To use the "footnotesize" font also for edge labels.
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%----------------------------------------------------------------

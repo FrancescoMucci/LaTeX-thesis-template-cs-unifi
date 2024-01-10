@@ -1,0 +1,49 @@
+%--------------------------------------------------------------
+%         Basic packages for thesis to be loaded as last 
+%--------------------------------------------------------------
+
+%------------PACKAGES-TO-BE-LOADED-AFTER-CLASSICTHESIS---------
+
+% Trying to load "tikz" (or "tcolorbox") before "dia-classicthesis-ldpkg" will cause an "option clash" error because both packages will load "graphicx" but with different options; loading "tikz" (or "tcolorbox") after "dia-classicthesis-ldpkg" solved the problem.
+
+\usepackage{tikz} 
+% The "tikz" package enables you to do nice figures in LaTeX: for example it can be used to draw automata.
+
+\usepackage[most]{tcolorbox}
+% The "tcolorbox" package provides an environment for coloured and framed text boxes with a heading line. Optionally, such a box may be split in an upper and a lower part; thus the package may be used for the setting of LaTeX examples where one part of the box displays the source code and the other part shows the output. Another common use case is the setting of theorems. The package supports saving and reuse of source code and text parts. The "most" option loads most of the "tcolorbox" libraries, including those required for creating breakable boxes, which are boxes that can automatically span across multiple pages.
+
+%---------------------HYPERREF-PACKAGE-------------------------
+
+% \usepackage{hyperref} % ALREADY LOADED by "dia-classicthesis-ldpkg".
+% The "hyperref" package is used to handle cross-referencing commands in LaTeX to produce hypertext links in the document. Since this package redefine many LaTeX commands, as a rule of thumb, it is better to load this package as the last one (unless otherwise specified), to give it a fighting chance of not being over-written.
+
+% Going into more detail, "hyperref" aims to cooperate with many other packages, but there are several possible sources for conflict such as: 
+% - packages that manipulate the bibliographic mechanism (the recommended one is "natbib");
+% - packages that changes "\label" and "\ref" macros;
+% - packages that do anything serious with the analytical index; 
+% - packages that do anything serious with sectioning commands and the toc. 
+% To reduce the possibilies of conflict, some packages need to be loaded before "hyperref" and others after (for an exhaustive list see "hyperref" documentation).
+
+% Some packages that need to be loaded BEFORE "hyperref": "float", "longtable", "ltabptch", "multind", "natbib", "prettyref", "setspace", "titleref".
+
+% Some packages that need to be loaded AFTER "hyperref": "amsrefs", "arydshln", "dblaccnt", "ellipsis", "linguex", "cleveref".
+
+%---------------------------------------------------------------
+
+%--------------PACKAGES-TO-BE-LOADED-AFTER-HYPERREF-------------
+
+\usepackage{ellipsis} % LOAD AFTER "hyperref".
+% The "ellipsis" package fixes a problem in the way LaTeX handles ellipses ("\dots"); LaTeX always puts a tiny bit more space after "\dots" in text mode than before it, which results in the ellipsis being off-center when used between two words.
+
+\usepackage[italian, noabbrev]{cleveref} % LOAD AFTER "hyperref" and AFTER "amsmath".
+%The "cleveref" package enhances LaTeX’s label-referencing features, allowing the format of label-references to be determined automatically according to the “type” of cross-reference (equation, section, etc.) and the context in which the cross-reference is used: e.g. "\cref{eq1}" will be typeset as directly as "eq. 1" instead of simply "1" (obtained using "\ref{eq1}"). The "noabbrev" option disable the use of abbreviations in the default cross-reference names: e.g."\cref{eq1}" will be typeset as "equation (1)". The support for "babel" is available. Care must be taken when using "cleveref" in conjunction with other packages that modify LaTeX's referencing system: this package must be loaded last.
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%---------------------------------------------------------------

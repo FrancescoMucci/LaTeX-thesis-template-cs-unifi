@@ -1,0 +1,157 @@
+%--------------------------------------------------------------
+%		  Copyright and Creative Common Licenses
+%--------------------------------------------------------------
+
+%----------------------COPYRIGHT-------------------------------
+
+% A copyright is a type of intellectual property that gives its owner the exclusive right to copy, distribute, adapt, display, and perform a creative work, usually for a limited time (source: https://en.wikipedia.org/wiki/Copyright).
+
+%--------------------------------------------------------------
+
+%--------------------COPYRIGHT-SIGN----------------------------
+
+% The copyright sign is the symbol used in copyright notices for works; this symbol is widely recognized but, under the Berne Convention, is no longer required in most nations to assert a new copyright (source: https://en.wikipedia.org/wiki/Copyright_symbol).
+
+\keyword{\myCopyright}{Copyright \textcopyright}
+
+%--------------------------------------------------------------
+
+%------------------COPYRIGHT-IN-ITALY--------------------------
+
+% In Italy, when you create an original work, you are automatically protected without the need to add any kind of wording or symbol. The Italian copyright law assigns the author, at the time of creation of the work, two main rights: the moral right (diritto morale) and patrimonial rights (diritti patrimoniali).
+
+% The moral right, which is inalienable and lasts forever, guarantees authorship of the work and its integrity: if I am the author, whatever rights I cede, the work will still remain created by me.
+
+% Patrimonial rights allow the economic use of the work in any form and manner and provide rights of reproduction and distribution, communication to the public, translation and processing. Unlike moral right, patrimonial rights have a pre-established duration: they expire 70 years after the death of the author. Even anonymous works are protected: patrimonial rights last 70 years from the date of first publication. Patrimonial rights, unlike moral rights, can be transferred.
+
+% Source for comments: https://www.wikimedia.it/news/diritto-di-autore-e-creative-commons-una-guida/.
+
+%--------------------------------------------------------------
+
+%--------------COPYRIGHT-VS-CREATIVE-COMMONS-------------------
+
+% Creative Commons (CC) licenses are copyright licenses, inspired by copyleft, that clearly indicate which patrimonial rights the author keeps for himself and which he renounces. Through these licenses you retain the moral rights, so a CC license do not serve to protect the work or demonstrate authorship, but to make it available and usable by third parties. 
+
+% These licenses act in addition to and on the basis of existing copyright: they do not present themselves as an alternative to copyright, but a license is applied to a work that is protected by copyright.
+
+% Source for comments: https://www.wikimedia.it/news/diritto-di-autore-e-creative-commons-una-guida/.
+
+%--------------------------------------------------------------
+
+%------------CREATIVE-COMMONS-LICENSES-HELPER-COMMANDS---------
+
+% The "\defCClicense{<key>}{<badge-name>}{<url-path>}{<text>}" command can be used to define a CC license.
+
+\newcommand{\defCClicense}[4]{%
+	\keyword{#1}{%
+		\includegraphics[scale=0.80]{license-badge/pdf/#2} %
+		\href{https://creativecommons.org/#3}{Creative Commons #4}%
+	}%
+}
+
+% The "\defCCfourLicense{<key>}{<badge-name>}{<text>}" command can be used to define a CC 4.0 license.
+
+\newcommand{\defCCfourLicense}[3]{%
+	\defCClicense{#1}{#2}{licenses/#2/4.0/}{#3 4.0 International License}%
+}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-ZERO-1.0----------------------------
+
+% CC Zero 1.0 Universal: by marking the work with a CC0 public domain dedication, the creator is giving up their copyright and allowing reusers to distribute, remix, adapt, and build upon the material in any medium or format, even for commercial purposes.
+
+% Basic version.
+%\newcommand{\CCZEROLicense}{\includegraphics[scale=0.80]{license-badge/pdf/zero} \href{https://creativecommons.org/publicdomain/zero/1.0/}{Creative Commons Zero 1.0 Universal}\xspace}
+
+% Improved version.
+\defCClicense{\CCZEROLicense}{zero}{publicdomain/zero/1.0/}{Zero 1.0 Universal}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-BY-4.0------------------------------
+
+% CC Attribution 4.0 International (CC BY 4.0): this license requires that reusers give credit to the creator. It allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, even for commercial purposes.
+
+% Basic version.
+%\newcommand{\CCBYLicense}{\includegraphics[scale=0.80]{license-badge/pdf/by} \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}\xspace}
+
+% Improved version.
+\defCCfourLicense{\CCBYLicense}{by}{Attribution}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-BY-SA-4.0---------------------------
+
+% CC Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): this license requires that reusers give credit to the creator. It allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, even for commercial purposes. If others remix, adapt, or build upon the material, they must license the modified material under identical terms.
+
+% Basic version.
+%\newcommand{\CCBYSALicense}{\includegraphics[scale=0.80]{license-badge/pdf/by-sa} \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution{\hyp}ShareAlike 4.0 International}\xspace}
+
+% Improved version.
+\defCCfourLicense{\CCBYSALicense}{by-sa}{Attribution{\hyp}ShareAlike}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-BY-ND-4.0---------------------------
+
+% CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0): this license requires that reusers give credit to the creator. It allows reusers to copy and distribute the material in any medium or format in unadapted form only, even for commercial purposes.
+
+% Basic version.
+%\newcommand{\CCBYNDLicense}{\includegraphics[scale=0.80]{license-badge/pdf/by-nd} \href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons Attribution{\hyp}NoDerivatives 4.0 International}\xspace}
+
+% Improved version.
+\defCCfourLicense{\CCBYNDLicense}{by-nd}{Attribution{\hyp}NoDerivatives}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-BY-NC-4.0---------------------------
+
+% CC Attribution-NonCommercial 4.0 International (CC BY-NC 4.0): this license requires that reusers give credit to the creator. It allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, for noncommercial purposes only.
+
+% Basic version.
+%\newcommand{\CCBYNCLicense}{\includegraphics[scale=0.80]{license-badge/pdf/by-nc} \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution{\hyp}NonCommercial 4.0 International}\xspace}
+
+% Improved version.
+\defCCfourLicense{\CCBYNCLicense}{by-nc}{Attribution{\hyp}NonCommercial}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-BY-NC-SA-4.0------------------------
+
+% CC Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0): this license requires that reusers give credit to the creator. It allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, for noncommercial purposes only. If others modify or adapt the material, they must license the modified material under identical terms.
+
+% Basic version.
+%\newcommand{\CCBYNCSALicense}{\includegraphics[scale=0.80]{license-badge/pdf/by-nc-sa} \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution{\hyp}NonCommercial{\hyp}ShareAlike 4.0 International}}
+
+% Improved version.
+\defCCfourLicense{\CCBYNCSALicense}{by-nc-sa}%
+{Attribution{\hyp}NonCommercial{\hyp}ShareAlike}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-BY-NC-ND-4.0------------------------
+
+% CC Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0): this license requires that reusers give credit to the creator. It allows reusers to copy and distribute the material in any medium or format in unadapted form and for noncommercial purposes only.
+
+% Basic version.
+%\newcommand{\CCBYNCNDLicense}{\includegraphics[scale=0.80]{license-badge/pdf/by-nc-nd} \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution{\hyp}NonCommercial{\hyp}NoDerivatives 4.0 International}\xspace}
+
+% Improved version.
+\defCCfourLicense{\CCBYNCNDLicense}{by-nc-nd}%
+{Attribution{\hyp}NonCommercial{\hyp}NoDerivatives}
+
+%--------------------------------------------------------------
+
+%-----------------------CC-SUMMARY-----------------------------
+
+% In summary: 
+% - CC0: this work has been marked as dedicated to the public domain;
+% - BY: credit must be given to you, the creator;
+% - SA: adaptations must be shared under the same terms;
+% - ND: no derivatives or adaptations of your work are permitted;
+% - NC: only noncommercial use of your work is permitted.
+
+% Source for comments: https://creativecommons.org/
+
+%--------------------------------------------------------------

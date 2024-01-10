@@ -1,0 +1,120 @@
+%---------------------------------------------------------------
+%             Settings for thesis basic packages
+%---------------------------------------------------------------
+
+%--------------------CLASSICTHESIS-SETTINGS---------------------
+
+% The "classicthesis" style adds a "\deactivateaddvspace" command at the start of list of figures, list of tables and list of listings files; this macro deactivate the grouping by chapter for the list entries. In order to not mess with the "classicthesis" code, we can define another macro that will cause "\deactiveateaddvspace" to do nothing.
+\newcommand{\killdeactivateaddvspace}{\let\deactivateaddvspace\relax}
+% Now we just need to add the former macro at the very start of the corresponding <list-of-x> file using the following command:
+% - "\AtEndPreamble{\addtocontents{<list-of-x>}{\protect\killdeactivateaddvspace}}"
+
+%---------------------------------------------------------------
+
+%--------------------XSPACE-SETTINGS----------------------------
+
+% The "\xspace" command normally produce a space before "]" and "}" but not before ")": using the "\xspaceaddexceptions" command we can set the behavior of "\xspace" so that it does not add space before any kind of brackets.
+\xspaceaddexceptions{]\}>}
+
+%---------------------------------------------------------------
+
+%--------------------IMAKEIDX-SETTINGS--------------------------
+
+\makeindex[columns=2, columnseprule, options={-s 0-preamble/basic/index-style.ist}]
+% The command "\makeindex" is mandatory for the analytical index to work and can take some parameters to customize its appearance. By setting the "intoc" option an entry for this particular index is put in the table of contents. With the "columns" options you can set the number of columns in the index; if "columnseprule" it is set to true, a rule will appear between the columns. In order to customaze the index sorting and formatting you can specify a style file to use through the option "options={-s <style-file-name>.ist}".
+
+\indexsetup{headers={\indexname}{\indexname}}
+% The command "\indexsetup{<key-values list>}" allows further customisation of the analytical index. The default page header produced for the analytical index is not consistent with the header of the other chapters of the back matter (it's uppercase), so you can customize it using the option "headers={<left>}{<right>}" and exploiting the command '\indexname' which allows us to access the name associated with our analytical index.
+
+\renewcommand{\dotfill}{\leavevmode\cleaders\hbox to 0.70em{\hss .\hss }\hfill\kern0pt }
+% To adjust the spacing of dots produced by the command "\dotfill": we changes the default length of 0.33em to 0.70em to make the dots used in the analytical index consistent with those used in the table of contents and in the lists of figures, tables and listings.
+
+%---------------------------------------------------------------
+
+%--------------------CLEVEREF-SETTINGS--------------------------
+
+\crefname{listing}{codice}{codici}
+% When we refer to a labeled block of code, the "cleveref" package does not correctly translate "listing" into Italian, so we configure the translation using the "\crefname" command and providing both the singular and plural of the term to use.
+
+%---------------------------------------------------------------
+
+%--------------------TOCLOFT-SETTINGS---------------------------
+
+\setlength{\cftbeforechapskip}{2pt} 
+% Adds extra space between chapter entries in the table of contents.
+
+%---------------------------------------------------------------
+
+%--------------------TOCLOFT-SETTINGS---------------------------
+
+% We define "mytextboxstyle", a style setting for `tcolorbox` that facilitates the creation of text boxes which can automatically continue across multiple pages.
+\tcbset{
+  mytextboxstyle/.style={
+    breakable,              % allows the box to break across pages
+    colback     = white,    % sets the background color to white
+    left        = 2mm,      % sets the left padding
+    right       = 2mm,      % sets the right padding
+    top         = 2mm,      % sets the top padding
+    bottom      = 1mm,      % sets the bottom padding
+    arc         = 1mm,      % sets the corner arc radius
+    boxrule     = 0.5mm,    % sets the frame rule thickness
+    toptitle    = 0.5mm,    % sets the space above the title
+    bottomtitle = 0mm,      % sets the space below the title
+    titlerule   = 0mm,      % sets the thickness of the rule below the title
+  }
+}
+
+% We define "chapterIntroBox", a text box for writing chapter introductions.
+\newtcolorbox{chapterIntroBox}{
+  mytextboxstyle, 							% inherit all settings from "mytextboxstyle"
+  colframe 	= darkgray, 					% sets the frame color to dark gray
+  title 	= Introduzione al capitolo, 	% sets the box title
+}
+
+% We define "chapterSummaryBox", a text box for writing chapter summaries.
+\newtcolorbox{chapterSummaryBox}{
+  mytextboxstyle, 									% inherit all settings from "mytextboxstyle"
+  colframe 	= black,							    % sets the frame color to black
+  title 	= Riassunto del capitolo e conclusioni, % sets the box title
+}
+
+% We define "chapterIntroBox", a text box for writing appendix introductions.
+\newtcolorbox{appendixIntroBox}{
+  mytextboxstyle, 						  	% inherit all settings from "mytextboxstyle"
+  colframe 	= gray,							% sets the frame color to gray
+  title 	= Introduzione all'appendice,	% sets the box title
+}
+
+% We define "myTextBox", a simple box for writing text with a parametric title and customizable options.
+\newtcolorbox{myTextBox}[2][]{
+  mytextboxstyle, 	% inherit all settings from "mytextboxstyle"
+  title = #2,     	% title of the box, passed as mandatory the second argument
+  #1  				% first optional argument for additional settings
+}
+
+%--------------------ACRONYM-SETTINGS---------------------------
+
+% Using tha package "acronym", any acronym printed by "\acs" is formatted by "\acsfont"; any acronym printed by "\acf" is formatted by "\acffont" and the included acronym is formatted by "\acfsfont" (and "\acsfont)".
+
+% Italics font will be used when we prints the full name and the acronym in brackets.
+%\renewcommand*{\acffont}[1]{\emph{#1}}
+
+% Smaller bold font will be used for all acronyms (we can remove the package option "smaller").
+%\renewcommand*{\acsfont}[1]{\textsmaller{\textbf{#1}}}
+
+%---------------------------------------------------------------
+
+%--------------------ENUMITEM-SETTINGS--------------------------
+
+%\setlist{topsep=1pt, parsep=0.5pt, itemsep=0.5pt}
+% To obtain more compressed list using the "enumitem" package.
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%---------------------------------------------------------------

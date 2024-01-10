@@ -1,0 +1,219 @@
+\chapter{Template math tests}
+\label{appendix:math-test}
+\acresetall
+
+\section{Appendix introduction}
+
+In this appendix we will test some math related keywords, packages and their settings.
+
+\section{Test math keywords}
+
+\subsection{Sets of numbers}
+
+\begin{enumerate}
+
+\item Natural numbers: \N.
+\begin{itemize}
+\item \N in text mode.
+\item $\N$ in math mode.
+\end{itemize}
+
+\item Integer numbers: \Z.
+\begin{itemize}
+\item \Z in text mode.
+\item $\Z$ in math mode.
+\end{itemize}
+
+\item Rational numbers: \Q.
+\begin{itemize}
+\item \Q in text mode.
+\item $\Q$ in math mode.
+\end{itemize}
+
+\item Real numbers: \R.
+\begin{itemize}
+\item \R in text mode.
+\item $\R$ in math mode.
+\end{itemize}
+
+\item Complex numbers: \C.
+\begin{itemize}
+\item \C in text mode.
+\item $\C$ in math mode.
+\end{itemize}
+
+\item In math mode "xspace" does not work:
+\begin{itemize}
+\item $n \in \N c \in \C$.
+\end{itemize}
+
+\end{enumerate}
+
+\subsection{Custom spaced logical operators}
+
+\begin{enumerate}
+\item AND: $(a,b) \in V \myland (b,c) \in V$
+\item OR: $(a,b) \in V \mylor (b,c) \in V$
+\end{enumerate}
+
+\subsection{Text conjunction keywords}
+
+\begin{enumerate}
+\item "e": $n \in \N \e c \in \C$.
+\item "allora" : $n \geq 5 \allora n \geq 4$.
+\item "se": $n \geq 5 \se n = 5$.
+\item "per": $x_i \prec x_{i+1} \per 1 \leq i \leq n-1$.
+\item "con": $x_i \prec x_{i+1} \ldots \con x_1 = s \text{,} \ x_n = s'$.
+\item "implica":  $E_1 \rightarrow n \implica E_2 \rightarrow n$.
+\end{enumerate}
+
+\section{Test amsthm environments}
+
+\subsection{Plain environments}
+
+\subsubsection{Proposizione}
+
+\begin{proposizione}[Proposizione di prova]
+\lipsum[4]
+\end{proposizione}
+
+\begin{proposizione-num}{3.2.1}[Custom proposizione di prova]
+\lipsum[4]
+\end{proposizione-num}
+
+\subsubsection{Lemma}
+
+\begin{lemma}[Lemma di prova]
+\lipsum[4]
+\end{lemma}
+
+\begin{lemma-num}{3.2.1}[Custom lemma di prova]
+\lipsum[4]
+\end{lemma-num}
+
+\subsubsection{Teorema}
+
+\begin{teorema}[Teorema di prova]
+\lipsum[4]
+\end{teorema}
+
+\begin{teorema-num}{3.2.1}[Custom teorema di prova]
+\lipsum[4]
+\end{teorema-num}
+
+\subsubsection{Corollario}
+
+\begin{corollario}[Corollario di prova]
+\lipsum[4]
+\end{corollario}
+
+\begin{corollario-num}{3.2.1}[Custom corollario di prova]
+\lipsum[4]
+\end{corollario-num}
+ 
+\subsubsection{Congettura}
+
+\begin{congettura}[Congettura di prova]
+\lipsum[4]
+\end{congettura}
+
+\begin{congettura-num}{3.2.1}[Custom congettura di prova]
+\lipsum[4]
+\end{congettura-num}
+
+\subsection{Definition environments} 
+
+\subsubsection{Definizione}
+
+\begin{definizione}[Definizione di prova]
+\lipsum[4]
+\end{definizione}
+
+\begin{definizione-num}{3.2.1}[Custom definizione di prova]
+\lipsum[4]
+\end{definizione-num}
+
+\subsubsection{Assioma}
+
+\begin{assioma}[Assioma di prova]
+\lipsum[4]
+\end{assioma}
+
+\begin{assioma-num}{3.2.1}[Custom assioma di prova]
+\lipsum[4]
+\end{assioma-num}
+
+\subsubsection{Problema}
+
+\begin{problema}[Problema di prova]
+\lipsum[4]
+\end{problema}
+
+\begin{problema-num}{3.2.1}[Custom problema di prova]
+\lipsum[4]
+\end{problema-num}
+
+\subsubsection{Esempio}
+
+\begin{esempio}[Esempio di prova]
+\lipsum[4]
+\end{esempio}
+
+\begin{esempio-num}{3.2.1}[Custom esempio di prova]
+\lipsum[4]
+\end{esempio-num}
+
+\subsubsection{Esercizio}
+
+\begin{esercizio}[Esercizio di prova]
+\lipsum[4]
+\end{esercizio}
+
+\begin{esercizio-num}{3.2.1}[Custom esercizio di prova]
+\lipsum[4]
+\end{esercizio-num}
+
+\subsubsection{Algoritmo}
+
+\begin{algoritmo}[Algoritmo di prova]
+\lipsum[4]
+\end{algoritmo}
+
+\begin{algoritmo-num}{3.2.1}[Custom algoritmo di prova]
+\lipsum[4]
+\end{algoritmo-num}
+
+\subsection{Remark environments}
+
+\subsubsection{Nota}
+
+\begin{nota}[Nota di prova]
+\lipsum[4]
+\end{nota}
+
+\begin{nota-num}{3.2.1}[Custom nota di prova]
+\lipsum[4]
+\end{nota-num}
+
+\section{Test finite state machine}
+
+In \cref{figure:fsm} we see an example of a finite state machine.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+[initial text = {}, every initial by arrow/.style={-Stealth, thick}, node distance = 3cm]
+\node[elliptic state, initial](q0){$a;(b+c)$};
+\node[elliptic state, right of=q0](q1){$1;(b+c)$};
+\node[elliptic state, right of=q1](q2){$b+c$};
+\node[elliptic state, right of=q2, accepting](q3){$1$};
+\path[-Stealth, thick, above, every loop/.style={-Stealth}]
+	(q0) edge node {$a$} (q1)
+	(q1) edge node {$\varepsilon$} (q2)
+	(q2) edge[bend left] node {$b$} (q3)
+		 edge[bend right] node {$c$} (q3)
+	(q3) edge[loop right] node {$\varepsilon$} (q3);
+\end{tikzpicture}
+\caption[FSM example]{just a finite state machine example.}
+\label{figure:fsm}
+\end{figure}

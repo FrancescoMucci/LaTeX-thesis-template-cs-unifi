@@ -1,0 +1,303 @@
+%--------------------------------------------------------------
+%               Keyword helper commands
+%--------------------------------------------------------------
+
+%----------------------KEYWORDS---------------------------------
+
+% The "\keyword{\<name>}{<text>}" command can be used to define a simple keyword: useful to never forget the "\xspace" at the end of the definition (without the "\xspace" every keywords inserted inside text should be followed or enclosed by curly brackets or else there would be no space added).
+
+\newcommand{\keyword}[2]{%
+	\newcommand{#1}{#2\xspace}%
+}
+
+% For testing
+\newcommand{\simpleNewcommand}{newcommand}
+\keyword{\keywordExample}{keyword}
+
+%--------------------------------------------------------------
+
+%----------------------EMPHASIZED-KEYWORDS---------------------
+
+% The "\emphKeyword{\<name>}{<text>}" command can be used to define a keyword with emphasized text.
+
+% Basic version.
+%\newcommand{\emphKeyword}[2]{%
+%	\newcommand{#1}{\emph{#2}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\emphKeyword}[2]{%
+	\keyword{#1}{\emph{#2}}%
+}
+
+% For testing.
+\emphKeyword{\emphKeywordExample}{emphasized-keyword}
+
+%--------------------------------------------------------------
+
+%----------------------TEXTTT-KEYWORDS-------------------------
+
+% The "\ttKeyword{\<name>}{<text>}" command can be used to define a keyword with typewriter font (useful for code-related keywords).
+
+% Basic version.
+%\newcommand{\ttKeyword}[2]{%
+%	\newcommand{#1}{\texttt{#2}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\ttKeyword}[2]{%
+	\keyword{#1}{\texttt{#2}}%
+}
+
+% For testing.
+\ttKeyword{\ttKeywordExample}{typewriter-keyword}
+
+%--------------------------------------------------------------
+
+%----------------------ACRONYM-KEYWORDS------------------------
+
+% The "\acroKeyword{\<name>}{<acronym>}" command can be used to define a keywords for a defined acronym.
+
+% Basic version.
+%\newcommand{\acroKeyword}[2]{%
+%	\newcommand{#1}{\emph{\ac{#2}}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\acroKeyword}[2]{%
+	\emphKeyword{#1}{\ac{#2}}%
+}
+
+% For testing.
+\acroKeyword{\AKE}{AKE}
+
+%--------------------------------------------------------------
+
+%----------------------INDEXED-KEYWORDS------------------------
+
+% The "\idxKeyword{\<name>}{<text>}{<entry>[!<subentry>]}" command can be used to define a indexed keyword: every time it is used, it adds the specified entry in the analytical index.
+
+% Basic version.
+%\newcommand{\idxKeyword}[3]{%
+%	\newcommand{#1}{#2\index{#3}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\idxKeyword}[3]{%
+	\keyword{#1}{#2\index{#3}}%
+}
+
+% With "\index{<entry>}" you declare an entry in the index. With "\index{<entry>!<subentry>}" you declare a sub entry of the particular entry (it will be on the line below the entry and and indented). With "\index{<entry>!<subentry>!<subsubentry>}" you declare a sub entry of the particular sub entry.
+
+% For testing.
+\idxKeyword{\idxKeyOne}{first-indexed-keyword}{First idx keyword}
+\idxKeyword{\idxKeyTwo}{second-indexed-keyword}{Second idx keyword}
+\idxKeyword{\idxKeyThree}{third-indexed-keyword}{Third idx keyword}
+\idxKeyword{\idxKeyTwoSub}{subitem}{Second idx keyword!Sub}
+\idxKeyword{\idxKeyThreeSubsub}{subsubitem}{Third idx keyword!Other sub!Subsub}
+
+%--------------------------------------------------------------
+
+%-------------------INDEXED-EMPHASIZED-KEYWORDS----------------
+
+% The "\idxEmphKeyword{\<name>}{<text>}{<entry>[!<subentry>]}" command can be used to define a indexed emphasized keyword.
+
+% Basic version.
+%\newcommand{\idxEmphKeyword}[3]{%
+%	\newcommand{#1}{\emph{#2}\index{#3}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\idxEmphKeyword}[3]{%
+	\idxKeyword{#1}{\emph{#2}}{#3}
+}
+
+% For testing.
+\idxEmphKeyword{\idxEmphKeyOne}{first-idxemph-keyword}{First idxemph keyword}
+\idxEmphKeyword{\idxEmphKeyTwo}{second-idxemph-keyword}{Second idxemph keyword}
+\idxEmphKeyword{\idxEmphKeyThree}{third-idxemph-keyword}{Third idxemph keyword}
+\idxEmphKeyword{\idxEmphKeyTwoSub}{emph-sub}{Second idxemph keyword!Emphsub}
+\idxEmphKeyword{\idxEmphKeyThreeSubsub}{emph-subsub}{Third idxemph keyword!Other emphsub!Emphsubsub}
+
+%--------------------------------------------------------------
+
+%-------------------INDEXED-TEXTTT-KEYWORDS--------------------
+
+% The "\idxTtKeyword{\<name>}{<text>}{<entry>[!<subentry>]}" command can be used to define a indexed keyword with typewriter font (useful for code-related keywords).
+
+% Basic version.
+%\newcommand{\idxTtKeyword}[3]{%
+%	\newcommand{#1}{\texttt{#2}\index{#3}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\idxTtKeyword}[3]{%
+	\idxKeyword{#1}{\texttt{#2}}{#3}
+}
+
+% For testing.
+\idxTtKeyword{\idxTtKeyOne}{first-idxtt-keyword}{First idxtt keyword}
+\idxTtKeyword{\idxTtKeyTwo}{second-idxtt-keyword}{Second idxtt keyword}
+\idxTtKeyword{\idxTtKeyThree}{third-idxtt-keyword}{Third idxtt keyword}
+\idxTtKeyword{\idxTtKeyTwoSub}{tt-sub}{Second idxtt keyword!Ttsub}
+\idxTtKeyword{\idxTtKeyThreeSubsub}{tt-subsub}{Third idxtt keyword!Other ttsub!Ttsubsub}
+
+%--------------------------------------------------------------
+
+%--------------------INDEXED-ACRONYM-KEYWORDS------------------
+
+% The "\idxAcroKeyword{\<name>}{<acronym>}{<entry>[!<subentry>]}" command can be used to define an indexed keyword for a defined acronym.
+
+% Basic version.
+%\newcommand{\idxAcroKeyword}[3]{%
+%	\newcommand{#1}{\emph{\ac{#2}}\index{#3}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\idxAcroKeyword}[3]{%
+	\idxEmphKeyword{#1}{\ac{#2}}{#3}%
+}
+
+% For testing.
+\idxAcroKeyword{\IAKE}{IAKE}{I@\acs{IAKE}}
+% By default the acronym short name will be added to the analytical index in the "Symbols" group and not in correct letter group; we can precede the index entry with the desired group followed by "@" to force the sorting.
+
+%--------------------------------------------------------------
+
+%-------------------AUTO-INDEXED-ACRONYM-KEYWORDS--------------
+
+% The "\autoIdxAcroKeyword{\<name>}{<acronym>}{<group>}" command can be used to define an indexed keyword for a defined acronym without the need to specify the entry to use in the analytical index: the entry will be in the specified group and will correspond to the short name associated with the acronym.
+
+% Basic version.
+%\newcommand{\autoIdxAcroKeyword}[3]{%
+%	\newcommand{#1}{\emph{\ac{#2}}\index{#3@\acs{#2}}\xspace}%
+%}
+
+% Improved version.
+\newcommand{\autoIdxAcroKeyword}[3]{%
+	\idxAcroKeyword{#1}{#2}{#3@\acs{#2}}%
+}
+
+% For testing.
+\autoIdxAcroKeyword{\AIAKE}{AIAKE}{A}
+
+%--------------------------------------------------------------
+
+%------------------HYPERLINKS-HELPER-COMMANDS------------------
+
+% The "\myHref{<URL>}{<text>" command is a wrapper of "\href" from the "hyperref" package (made the text specified as the second argument a hyperlink to the URL specified as the first argument); in my version the text will be rendered using the typewriter font.
+
+\newcommand{\myHref}[2]{%
+	\href{#1}{\texttt{#2}}%
+}
+
+% The "\https{<URL-without-protocol>}" command can be used to reference a "secure" web page.
+\newcommand{\https}[1]{%
+	\myHref{https://#1}{#1}%
+}
+
+% The "\http{<URL-without-protocol>}" command can be used to reference a "not secure" web page.
+\newcommand{\http}[1]{%
+	\myHref{http://#1}{#1}%
+}
+
+% The "\mailto{<email>}" command can be used to reference an email address.
+\newcommand{\mailto}[1]{%
+	\myHref{mailto://#1}{#1}%
+}
+
+%--------------------------------------------------------------
+
+%----------------------SECURE-WEBPAGE-KEYWORDS-----------------
+
+% The "\webpage{\<name>}{<URL-without-protocol>}" command can be used to define a keyword for a "secure" webpage.
+
+% Basic version.
+%\newcommand{\webpage}[2]{%
+%	\newcommand{#1}{\href{https://#2}{\texttt{#2}}\xspace}
+%}
+
+% Improved version.
+\newcommand{\webpage}[2]{%
+	\keyword{#1}{\https{#2}}%
+}
+
+% For testing.
+\webpage{\myWebpage}{francescomucci.github.io}
+
+%--------------------------------------------------------------
+
+%----------------------NOT-SECURE-WEBPAGE-KEYWORDS-------------
+
+% The "\notsecurewebpage{\<name>}{<URL-without-protocol>}" command can be used to define a keyword for a "not secure" webpage.
+
+% Basic version.
+%\newcommand{\notsecwebpage}[2]{%
+%	\newcommand{#1}{\href{http://#2}{\texttt{#2}}\xspace}
+%}
+
+% Improved version.
+\newcommand{\notsecwebpage}[2]{%
+	\keyword{#1}{\http{#2}}%
+}
+
+% For testing.
+\notsecwebpage{\notSecureWebpageExample}{icetcs.ru.is}
+
+%--------------------------------------------------------------
+
+%----------------------MAIL-KEYWORDS---------------------------
+
+% The "\mail{\<name>}{<email>}" command can be used to define a keyword for an email address.
+
+% Basic version.
+%\newcommand{\mail}[2]{%
+%	\newcommand{#1}{\href{mailto://#2}{\texttt{#2}}\xspace}
+%}
+
+% Improved version.
+\newcommand{\mail}[2]{%
+	\keyword{#1}{\mailto{#2}}%
+}
+
+% For testing.
+\mail{\myMail}{francesco.mucci@edu.unifi.it}
+
+%--------------------------------------------------------------
+
+%-------------------AUTOCAP-COMMAND----------------------------
+
+% The "\autocap{<letter>}" command can be used on the initial letter of a keyword text to automatically capitalize the text after a full stop.
+
+\newcommand{\autocap}[1]{%
+	\ifnum%
+		\ifhmode\spacefactor\else2000\fi>1005%
+		\uppercase{#1}%
+		\else{#1}%
+	\fi%
+}
+
+% Since we use the use "\frenchspacing", a "\spacefactor" value greater than 1005 indicate the end of a sentence (the "\spacefactor" parameter affects how much stretching or shrinking can happen if the next thing in the input is a space). With "\ifhmode" we check if the current mode is horizontal mode, the mode typically used to make lines of text.
+
+% For testing.
+\keyword{\autocapKeywordExample}{\autocap{a}utocap-keyword}
+
+% For testing.
+\emphKeyword{\autocapEmphKeywordExample}{\autocap{a}utocap-emph-keyword}
+% PROBLEM: unfortunately this command does not work correctly with emphasized keyword.
+
+% For testing.
+\ttKeyword{\autocapTtKeywordExample}{\autocap{a}utocap-tt-keyword}
+% PROBLEM: unfortunately this command does not work correctly with keyword with typewriter font.
+
+%--------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+% The comments on TeX conditional commands are also based on "TeX by Topic" (2017) by Victor Eijkhout.
+
+%---------------------------------------------------------------

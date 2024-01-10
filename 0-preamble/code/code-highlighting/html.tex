@@ -1,0 +1,24 @@
+%---------------------------------------------------------------
+%               My personal HTML highlightining
+%---------------------------------------------------------------
+
+%\usepackage{listings, xcolor}
+
+\lstdefinelanguage{MyHTML}{
+language = HTML,
+% Keywords:
+alsoletter = {-, :}, % Special characters as keywords.
+keywordstyle = \color{RoyalBlue},
+morekeywords = {section, header, nav, footer, th:block}, % Keywords from Bootstrap
+% Arguments inside delimeters:
+deletekeywords = {class, id, text, type, name, method, lang}, % Ex default keywors
+morekeywords = [2]{class, id, xmlns:th, th:text, th:fragment, th:replace, th:include, th:insert, th:classappend, th:block, th:if, xmlns:sec, sec:authorize, aria-hidden, th:action, th:object, type, name, method, lang, required, th:id, th:name, th:field, th:placeholder, th:errors, data-dismiss, aria-label, th:each, data-toggle, th:data-target},
+keywordstyle = [2]\color{Sepia},
+% Strings:
+stringstyle = \color{Emerald},
+% Comments:
+commentstyle = \color{lightgray},
+morecomment = [s]{<!-}{-->},
+% Tags:
+tagstyle=\color{gray},
+}

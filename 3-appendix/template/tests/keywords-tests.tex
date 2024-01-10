@@ -1,0 +1,327 @@
+\chapter{Template keywords tests}
+\label{appendix:keywords-tests}
+\acresetall
+
+\section{Appendix introduction}
+
+In this appendix we will test the keyword helper commands that are defined in the \texttt{keyword-helper.tex} file.
+
+\section{Test simple keyword}
+
+\begin{enumerate}
+
+\item A simple newcommand inside text should not create a space if curly brackets are not used:
+\begin{itemize}
+\item \textit{test}: \simpleNewcommand inside text.
+\end{itemize}
+
+\item A simple newcommand inside text should create a space if followed by curly brackets:
+\begin{itemize}
+\item \textit{test}: \simpleNewcommand{} inside text.
+\end{itemize}
+
+\item A simple newcommand inside text should create a space if enclosed by curly brackets:
+\begin{itemize}
+\item \textit{test}: {\simpleNewcommand} inside text.
+\end{itemize}
+
+\item A keyword inside text should create a space:
+\begin{itemize}
+\item \textit{test}: \keywordExample inside text.
+\end{itemize}
+
+\item A keyword before full stop should not create a space: 
+\begin{itemize}
+\item \textit{test}: \keywordExample.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test emphasized keyword}
+
+\begin{enumerate}
+
+\item An emphasized keyword inside text should create a space:
+\begin{itemize}
+\item \textit{test}: \emphKeywordExample inside text.
+\end{itemize}
+
+\item A emphasized keyword before full stop should not create a space: 
+\begin{itemize}
+\item \textit{test}: \emphKeywordExample.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test typewriter keyword}
+
+\begin{enumerate}
+
+\item An typewriter keyword inside text should create a space:
+\begin{itemize}
+\item \textit{test}: \ttKeywordExample inside text.
+\end{itemize}
+
+\item A typewriter keyword before full stop should not create a space: 
+\begin{itemize}
+\item \textit{test}: \ttKeywordExample.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test acronym keywords}
+
+\acresetall
+
+\begin{enumerate}
+
+\item An acronym keyword first use will print the full name and the acronym in brackets, both emphasized, and add an entry in acronyms tables (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \AKE inside text.
+\end{itemize}
+
+\item An acronym keyword second use will print only the emphasized acronym (space not expected before full stop): 
+\begin{itemize}
+\item \textit{test}: \AKE.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test indexed keywords}
+
+\begin{enumerate}
+
+\item An indexed keyword first use will print the keyword and add an entry in the analytical index (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \idxKeyOne inside text.
+\end{itemize}
+
+\item An indexed keyword second use on the same page will only print the keyword (space not expected before full stop): 
+\begin{itemize}
+\item \textit{test}: \idxKeyOne.
+\end{itemize}
+
+\item Another indexed keyword will print the keyword and add the corresponding entry in the analytical index: 
+\begin{itemize}
+\item \textit{test}: \idxKeyTwo.
+\item \textit{test}: \idxKeyThree.
+\end{itemize}
+
+\item An indexed keyword representing a subitem will print the keyword and add the corresponding subentry in the analytical index: 
+\begin{itemize}
+\item \textit{test}: \idxKeyTwoSub.
+\item \textit{test}: \idxKeyThreeSubsub.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test indexed emphasized keywords}
+
+\begin{enumerate}
+
+\item An indexed emphasized keyword first use will print the keyword with emphasis and add an entry in the analytical index (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \idxEmphKeyOne inside text.
+\end{itemize}
+
+\item An indexed emphasized keyword second use on the same page will only print the keyword with emphasis (space not expected before full stop): 
+\begin{itemize}
+\item \textit{test}: \idxEmphKeyOne.
+\end{itemize}
+
+\item Another indexed emphasized keyword will print the keyword with emphasis and add the corresponding entry in the analytical index: 
+\begin{itemize}
+\item \textit{test}: \idxEmphKeyTwo.
+\item \textit{test}: \idxEmphKeyThree.
+\end{itemize}
+
+\item An indexed emphasized keyword representing a subitem will print the keyword with emphasis and add the corresponding subentry in the analytical index: 
+\begin{itemize}
+\item \textit{test}: \idxEmphKeyTwoSub.
+\item \textit{test}: \idxEmphKeyThreeSubsub.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test indexed typewriter keywords}
+
+\begin{enumerate}
+
+\item An indexed typewriter keyword first use will print the keyword with typewriter font and add an entry in the analytical index (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \idxTtKeyOne inside text.
+\end{itemize}
+
+\item An indexed emphasized keyword second use on the same page will only print the keyword with typewriter font (space not expected before full stop): 
+\begin{itemize}
+\item \textit{test}: \idxTtKeyOne.
+\end{itemize}
+
+\item Another indexed emphasized keyword will print the keyword with typewriter font and add the corresponding entry in the analytical index: 
+\begin{itemize}
+\item \textit{test}: \idxTtKeyTwo.
+\item \textit{test}: \idxTtKeyThree.
+\end{itemize}
+
+\item An indexed emphasized keyword representing a subitem will print the keyword with typewriter font and add the corresponding subentry in the analytical index: 
+\begin{itemize}
+\item \textit{test}: \idxTtKeyTwoSub.
+\item \textit{test}: \idxTtKeyThreeSubsub.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test indexed acronym keywords}
+
+\begin{enumerate}
+
+\item An indexed acronym keyword first use will print the full name and the acronym in brackets, both emphasized, and add an entry in the analytical index (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \IAKE inside text.
+\end{itemize}
+
+\item An indexed acronym keyword second use on the same page will only print the emphasized acronym (space not expected before full stop): 
+\begin{itemize}
+\item \textit{test}: \IAKE.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test auto indexed acronym keywords}
+
+\begin{enumerate}
+
+\item An indexed acronym keyword first use will print the full name and the acronym in brackets, both emphasized, and add an entry in the analytical index (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \AIAKE inside text.
+\end{itemize}
+
+\item An indexed acronym keyword second use on the same page will only print the emphasized acronym (space not expected before full stop): 
+\begin{itemize}
+\item \textit{test}: \AIAKE.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test keyword auto capitalization}
+
+\autocapKeywordExample: a keyword with auto capitalization should be automatically capitalized at the beginning of a subsection.
+
+\begin{enumerate}
+
+\item A keyword with auto capitalization should be automatically capitalized the keyword after a full stop:
+\begin{itemize}
+\item \textit{test}: text. \autocapKeywordExample.
+\end{itemize}
+
+\item A keyword with auto capitalization should be automatically capitalized when it is the first element of a list:
+\begin{itemize}
+\item \autocapKeywordExample.
+\end{itemize}
+
+\item A keyword with auto capitalization should not be automatically capitalized when it is inside text:
+\begin{itemize}
+\item \textit{test}: text \autocapKeywordExample text
+\end{itemize}
+
+\end{enumerate}
+
+\autocapKeywordExample: a keyword with auto capitalization should be automatically capitalized after a bulleted list.
+
+\section{Test emphasized keyword auto capitalization}
+
+\autocapEmphKeywordExample: an emphasized keyword with auto capitalization should be automatically capitalized at the beginning of a subsection (NOT WORKING).
+
+\begin{enumerate}
+
+\item An emphasized keyword with auto capitalization should be automatically capitalized the keyword after a full stop:
+\begin{itemize}
+\item \textit{test}: text. \autocapEmphKeywordExample.
+\end{itemize}
+
+\item An emphasized keyword with auto capitalization should be automatically capitalized when it is the first element of a list (NOT WORKING):
+\begin{itemize}
+\item \autocapEmphKeywordExample.
+\end{itemize}
+
+\item An emphasized keyword with auto capitalization should not be automatically capitalized when it is inside text:
+\begin{itemize}
+\item \textit{test}: text \autocapEmphKeywordExample text
+\end{itemize}
+
+\end{enumerate}
+
+\autocapEmphKeywordExample: a keyword with auto capitalization should be automatically capitalized after a bulleted list (NOT WORKING).
+
+\section{Test typewriter keyword auto capitalization}
+
+\autocapEmphKeywordExample: an emphasized keyword with auto capitalization should be automatically capitalized at the beginning of a subsection (NOT WORKING).
+
+\begin{enumerate}
+
+\item An tt keyword with auto capitalization should be automatically capitalized the keyword after a full stop:
+\begin{itemize}
+\item \textit{test}: text. \autocapTtKeywordExample.
+\end{itemize}
+
+\item An tt keyword with auto capitalization should be automatically capitalized when it is the first element of a list (NOT WORKING):
+\begin{itemize}
+\item \autocapTtKeywordExample.
+\end{itemize}
+
+\item An tt keyword with auto capitalization should not be automatically capitalized when it is inside text:
+\begin{itemize}
+\item \textit{test}: text \autocapTtKeywordExample text
+\end{itemize}
+
+\end{enumerate}
+
+\autocapTtKeywordExample: a keyword with auto capitalization should be automatically capitalized after a bulleted list (NOT WORKING).
+
+\section{Test website keyword}
+
+\begin{enumerate}
+
+\item A website keyword inside text should create an hyperlink to the specified URL (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \myWebpage inside text.
+\end{itemize}
+
+\item A website keyword inside text should create an hyperlink to the specified URL (space not expected before full stop)
+\begin{itemize}
+\item \textit{test}: \myWebpage.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test not secure website keyword}
+
+\begin{enumerate}
+
+\item A not secure website keyword inside text should create an hyperlink to the specified URL (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \notSecureWebpageExample inside text.
+\end{itemize}
+
+\item A not secure website keyword inside text should create an hyperlink to the specified URL (space not expected before full stop)
+\begin{itemize}
+\item \textit{test}: \notSecureWebpageExample.
+\end{itemize}
+
+\end{enumerate}
+
+\section{Test mail keyword}
+
+\begin{enumerate}
+
+\item A mail keyword inside text should allow users to send an email to a specific address (space expected inside text):
+\begin{itemize}
+\item \textit{test}: \myMail inside text.
+\end{itemize}
+
+\item A mail keyword inside text should allow users to send an email to a specific address(space not expected before full stop)
+\begin{itemize}
+\item \textit{test}: \myMail.
+\end{itemize}
+
+\end{enumerate}

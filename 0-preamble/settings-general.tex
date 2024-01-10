@@ -1,0 +1,70 @@
+%--------------------------------------------------------------
+%               General settings for thesis   
+%--------------------------------------------------------------
+
+%--------------------GENERAL-SETTINGS--------------------------
+
+\newlength{\abcd} % for ab..z string length calculation
+% "\newlength" is a LaTeX macro which defines a new length register, which holds a length as number and can be used for calculations.
+
+%\setlength{\parindent}{0cm}
+% To remove the leading indent of the new paragraph.
+
+% To automatically line break texttt.
+\newcommand*\justify{%
+  \fontdimen2\font=0.4em% interword space
+  \fontdimen3\font=0.2em% interword stretch
+  \fontdimen4\font=0.1em% interword shrink
+  \fontdimen7\font=0.1em% extra space
+  \hyphenchar\font=`\-% allowing hyphenation
+}
+\renewcommand{\texttt}[1]{%
+  \begingroup
+  \ttfamily
+  \begingroup\lccode`~=`/\lowercase{\endgroup\def~}{/\discretionary{}{}{}}%
+  \begingroup\lccode`~=`[\lowercase{\endgroup\def~}{[\discretionary{}{}{}}%
+  \begingroup\lccode`~=`.\lowercase{\endgroup\def~}{.\discretionary{}{}{}}%
+  \catcode`/=\active\catcode`[=\active\catcode`.=\active
+  \justify\scantokens{#1\noexpand}%
+  \endgroup
+}
+
+%---------------------------------------------------------------
+
+%--------------------PAGE-LAYOUT-SETTINGS-----------------------
+
+% Setting the page layout using the "geometry" package.
+\geometry{
+	a4paper,
+	ignoremp,
+	bindingoffset = 1cm, 
+	textwidth     = 13.5cm,
+	textheight    = 21.5cm,
+	lmargin       = 3.5cm,
+	tmargin       = 4cm   
+}
+% The page layout in the "geometry" package contains a total body (printable area) and margins: the total body consists of a body (text area) with an optional header, footer and marginal notes; the margins are left, right, top and bottom (for twosided documents, horizontal margins should be called inner and outer).
+
+% The "a4paper" specifies the paper size by name.
+
+% The "ignoremp" option disregards the marginal notes in determining the horizontal margins (defaults to true).
+
+% The "bindingoffset" option removes a specified space from the lefthand-side of the page for oneside printing or the inner-side for twoside printing. This is useful if pages are bound by a press binding.
+
+% The "textwidth" option the width of the body.
+
+% The "textheight" option sets the height of the body (including footnotes and figures, excluding running head and foot).
+
+% The "lmargin" option sets the left margin (for oneside printing) or inner margin (for twoside printing) of total body: the distance between the left or inner edge of the paper and that of total body.
+
+% The "tmargin" option sets the top margin of the page.
+
+%--------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%--------------------------------------------------------------

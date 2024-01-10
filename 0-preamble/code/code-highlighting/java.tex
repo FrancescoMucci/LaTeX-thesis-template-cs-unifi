@@ -1,0 +1,34 @@
+%---------------------------------------------------------------
+%              My personal Java highlightining
+%---------------------------------------------------------------
+
+%\usepackage{listings, xcolor}
+
+\lstdefinelanguage{MyJava}{
+language = Java,
+% Keywords:
+keywordstyle = \color{Brown},
+morekeywords = {@interface},
+% Strings:
+stringstyle = \color{Emerald},
+% Comments:
+commentstyle = \color{gray}, 
+% Abstract types:
+morekeywords = [2]{List, BookRepository, BookService, BookWebController, IsbnConstraints, TitleConstraints, AuthorsConstraints, Default, ConstraintViolation, Set, BindingResult, Model, WebSecurityConfigurerAdapter, PasswordEncoder, BookDataMapper, APageObject, WebDriver, WebElement, MongoClient}, 
+keywordstyle = [2]\color{Cyan},
+% Concrete types:
+morekeywords = [3]{String, Book, BookData, IsbnData, Optional, Sort, MyBookService, MyBookWebController, MyWebSecurityConfiguration, BCryptPasswordEncoder, AuthenticationManagerBuilder, Exception, HttpSecurity, WebSecurity, MockMvc, BookHomeViewTest, WebClient, SilentCssErrorHandler, HtmlPage, HtmlHeader, BookViewTestingHelperMethods, MyBookWebControllerExceptionHandler, MyWebSecurityConfigurationTest, HtmlForm, Date, Calendar, HtmlUnitDriver, SilentHtmlUnitDriver, PageFactory, MyPage, BookHomePage, BookListPage, BookNewPage, BookSearchByIsbnPage, BookSearchByTitlePage, BookEditPage, UnknownErrorPage, MyErrorPage, BookAlreadyExistErrorPage, InvalidIsbnErrorPage, BookNotFoundErrorPage, BookEditViewIT, BookListViewIT, MongoClients, SpringBookshelfApplicationE2E, ChromeOptions, ChromeDriver, Integer, System, Document, SpringRunner},
+keywordstyle = [3]\color{blue},
+% Annotations:
+morekeywords = [4]{@Repository, @Service, @Over, @SuppressWarnings, @Override, @NotNull, @NotBlank, @Pattern, @ISBN, @Test, @GetMapping, @PostMapping, @Validated, @Valid, @Value, @Autowired, @Bean, @Configuration, @EnableWebSecurity, @Retention, @WithMockUser, @WithMockAdmin, WithMockAdmin, RetentionPolicy, @Controller, @ControllerAdvice, @ExceptionHandler, @ResponseStatus, @WebMvcTest, @MockBean, @Before, @FindBy, @After, @TestPropertySource, @RunWith},
+keywordstyle = [4]\color{magenta},
+% Exceptions:
+morekeywords = [5]{BookNotFoundException, BookAlreadyExistException, InvalidIsbnException},
+keywordstyle = [5]\color{red},
+% Assertions:
+morekeywords = [6]{when, thenReturn, assertThat, hasSize, isEqualTo, hasToString, isCloseTo, isEmpty, contains},
+keywordstyle = [6]\color{green},
+% Enums:
+morekeywords = [7]{HttpStatus, ChronoUnit},
+keywordstyle = [7]\color{Orchid},
+}

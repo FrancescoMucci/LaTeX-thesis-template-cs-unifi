@@ -1,0 +1,97 @@
+%--------------------------------------------------------------
+%                        Thesis style 
+%--------------------------------------------------------------
+
+%--------------------CLASSIC-THESIS-STYLE----------------------
+
+% Classic Thesis Style is an easy-to-use template for Master’s or PhD thesis (Copyright (C) 2015 André Miede http://www.miede.de).
+
+\usepackage{dia-classicthesis-ldpkg}
+% Before loading the "classicthesis" style, you first need to load "dia-classicthesis-ldpkg", the package loader for this style. If you inspect the "dia-classicthesis-ldpkg.sty" file you will see a lot of "\RequirePackage" commands, this command, just like "\usepackage", load a package: the most significant difference between these two commands is that "\RequirePackage" can be used in a document before the "\documentclass" command, so this command is intended to be used in package and class files. 
+
+% These are some of the packages preloaded by "dia-classicthesis-ldpkg" (for an exhaustive list please consult the file itself):
+% - [T1]{fontenc} 		to get the output encoding for writing in Italian;        
+% - {textcomp}			to get additional text symbols in the TS1 encoding;
+% - {xspace}			to set the spacing after macros right;
+% - {tabularx}			to get better tables;                                   
+% - {caption} 			to take care of the caption fonts and sizes; 
+% - {subfig} 			to enable subfigures in figures;
+% - {listings} 			to obtain fine typesetting of code listings;
+% - {hyperref}  		to produce hypertext links in the document;
+% - {relsize} 			to scale font up or down;
+% - {graphicx}			to get optional arguments for the "\includegraphics" command;
+% - [footnote]{acronym} to get macros for handling all acronyms in the thesis (COMMENTED OUT!).
+
+% ATTENTION: since "dia-classicthesis-ldpkg" loads the "hyperref" package, it is best to load this package loader after most other packages are already loaded.
+
+% These are also some useful new commands defined in "dia-classicthesis-ldpkg" (for an exhaustive list please consult the file itself):
+% - \ie 	for {i.\,e.}
+% - \Ie 	for {I.\,e.}
+% - \eg 	for {e.\,g.}
+% - \Eg 	for {E.\,g.}
+% - \etAl 	for {et al.\xspace}
+% - \RA 	for {\ensuremath{\Rightarrow}}
+% - \ra		for {\ensuremath{\rightarrow}}
+% - \lra	for {\ensuremath{\leftrightarrow}}
+% - \On		for {\ensuremath{O(n)}\xspace}
+% - \Ologn	for {\ensuremath{O(\log n)}\xspace}
+% - \Oone	for {\ensuremath{O(1)}\xspace}
+  
+\usepackage[eulerchapternumbers, linedheaders, subfig, beramono, eulermath, parts, dottedtoc, listings]{classicthesis}
+
+% ACTIVATED
+% Option "eulerchapternumbers": use figures from Hermann Zapf’s Euler math font for the chapter numbers. By default, old style figures from the Palatino font are used.
+
+% ACTIVATED
+% Option "linedheaders": changes the look of the chapter headings a bit by adding a horizontal line above the chapter title. The chapter number will also be moved to the top of the page, above the chapter title.
+
+% ACTIVATED
+% Option "subfig": if this option is specified, the setup for preloaded "subfig" package (which provides support for the inclusion of small, "sub", figures and tables) is enabled. This package simplifies the positioning, captioning and labeling of such objects within a single figure or table environment and to continue a figure or table across multiple pages. The "subfig" package requires the "caption" package by H.A. Sommerfeldt.
+
+% ACTIVATED
+% Option "beramono": loads Bera Mono as typewriter font. Default setting is using the standard CM typewriter font.
+
+% ACTIVATED
+% Option "eulermath": loads the awesome Euler fonts for math. Palatino is used as default font.
+
+% ACTIVATED
+% Option "parts": use this option if you use Part divisions in your document. This is necessary to get the spacing of the Table of Contents right.
+
+% ACTIVATED
+% Option "dottedtoc": sets pagenumbers flushed right in the table of contents.
+
+% ACTIVATED
+% Option "listings": if this option is specified, the setup for preloaded "listing" package is enabled. This package is a source code printer for LaTeX.
+
+% DEFAULT
+% Option "style": this offers a comfortable way of changing the look and feel easily. Default style is "classicthesis" . As a new feature, Lorenzo Pantieri’s "arsclassica" is available as well. As Lorenzo’s package is discontinued and with his permission, "classicthesis-arsclassica.sty" is now part of "classicthesis" and will be maintained here.
+
+% DEACTIVATED
+% Option "tocaligned": aligns the whole table of contents on the left side.
+
+% DEACTIVATED
+% Option "drafting" : prints the date and time at the bottom of each page, so you always know which version you are dealing with. Might come in handy not to give your Prof. that old draft.
+
+% DEACTIVATED
+% Option "manychapters": if you need more than nine chapters for your document, you might not be happy with the spacing between the chapter number and the chapter title in the Table of Contents. This option allows for additional space in this context. However, it does not look as “perfect” if you use "\parts" for structuring your document.
+
+% DEACTIVATED (NOT WORKING: doesn't seem to work properly for tables and figures.)
+% Option "floatperchapter": activates numbering per chapter for all floats such as figures, tables, and listings.
+
+% The "classicthesis" style also load the following useful packages (for an exhaustive list please consult the file itself):
+% - {xcolor} 			to access and to mix several kinds of colors;
+% - {booktabs} 			to get commands to enhance the quality of tables;
+% - {titlesec} 			to select various title styles for sectioning commands;
+% - {scrlayer-scrpage}  to define and manage page styles by controlling page headers and footers;
+% - {tocloft} 			to control the typography of the ToC and list of figures and tables;
+% - {footmisc}			to change the typesetting of footnotes.
+
+%---------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%---------------------------------------------------------------

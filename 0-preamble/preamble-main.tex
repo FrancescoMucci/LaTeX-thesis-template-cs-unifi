@@ -1,0 +1,101 @@
+%--------------------------------------------------------------
+%                  Preamble for thesis   
+%--------------------------------------------------------------
+
+%--------------------DOCUMENT-CLASS----------------------------
+
+% The document’s overall class is defined with the "\documentclass[<options list>]{<class-name>}" command, which is the first command in a LaTeX source file. The following document classes are built into LaTeX [ref: https://latexref.xyz/]: "article" for a journal article, a presentation, and miscellaneous general use; "book" for full-length books, including chapters and possibly including front matter, such as a preface, and back matter, such as an appendix; "letter" for mail; "report" for documents of length between an article and a book, such as technical reports or theses, which may contain several chapters; "slides" for slide presentations (rarely used nowadays, the "beamer" package is the most prevalent replacement). Many other document classes are available as separate packages.
+
+\documentclass[twoside = false, openright, footinclude, headinclude, fleqn, 12pt, a4paper]{scrbook}
+% The scrbook class provides provides features useful when preparing a book for publication. This class provides the "book"-like element of the "koma-script", a collection of replacements for the "article", "report" and "book" classes with emphasis on typography and versatility.
+
+% DEACTIVATED
+% Option "twoside": with this option the inner margin of one page is only half as wide as the corresponding outer margin; also the left and right margins are swapped on verso pages, so this option is ideal for double-sided printing. If the option is passed without a value, the value "true" is assumed, so two-sided printing is enabled. Deactivating the option with "twoside = false" leads to one-sided printing: the left and right margins are the same width.
+
+% ACTIVATED
+% Option "openright": a switch to indicate if chapters must start on a right-hand page. The default for the report class is no; for the book class it’s yes. Generate a page break and insert an interleaf page if needed to reach the next right-hand page in two-sided printing.
+
+% ACTIVATED
+% Options "headinclude" and "footinclude": these options cause the header or footer to be counted as part of the text.
+
+% ACTIVATED
+% Option "fleqn": equations are normally centred but, using the "fleqn" option, displayed equations are then left-justified.
+
+% DEACTIVATED
+% Option "titlepage": a switch to indicate if a titlepage has to be produced. For the article document class the default is not to make a separate titlepage. Using this option you can invoke \maketitle to creates titles on separate pages.
+
+% DEACTIVATED
+% Option "hidelinks": remove borders around clickable cross-references and hyperlinks.
+
+%--------------------SUBDIRECTORIES-SETTING--------------------
+
+% The following code declares a list of subdirectories so you can insert TeX files ("\input", "\include"), images ("\includegraphics"), or code ("\lstinputlisting") without specifying the path to the inserted file (if contained in one of these subdirectories).
+
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{{0-preamble/}{0-preamble/basic/}{0-preamble/floats/}{0-preamble/math/}{0-preamble/code/}{0-preamble/commands/}{0-preamble/keywords/}{1-front/}{2-chapters/}{3-appendix/}{4-back/}{other/img/}{other/src/}}
+\makeatother
+
+% Our list of subdirectories is hold by "\input@path": an internal command; these kind of commands use "@" in their name, are mainly intended for package or class writers and normal users are prevented from accidentally redefining them. To be able to define or redifine such commands, you need to use  the commands "\makeatletter" and "\makeatother"; the first one ensures that the "@" character is seen as a letter when searching for command names; the last one disable the possibility to act on internal commands to avoid subsequent problems with command interpretation.
+
+% The "\input@path" macro is normally undefined in LaTeX, but can be defined by some used package: for example, "graphics" and "graphicx" internally store the path specified in "\graphicspath" in "\Ginput@path" and locally sets "\input@path" to "\Ginput@path". We can therefore use "\providecommand" to define "\input@path" in the the case that it is undefined and then "\g@addto@macro" to extends its definition.
+
+%--------------------------------------------------------------
+
+%--------------------PACKAGES----------------------------------
+
+\input{basic/packages-basic}
+
+\input{floats/packages-floats}
+
+\input{math/packages-math}
+
+\input{code/packages-code}
+
+\input{basic/packages-basic-style}
+
+\input{basic/packages-basic-last}
+
+%--------------------------------------------------------------
+
+%--------------------SETTINGS----------------------------------
+
+\input{settings-general}
+
+\input{basic/settings-basic}
+
+\input{floats/settings-floats}
+
+\input{code/settings-code}
+
+\input{math/settings-math}
+
+%--------------------------------------------------------------
+
+%--------------------COMMANDS----------------------------------
+
+\input{basic/new-commands-basic}
+
+%--------------------------------------------------------------
+
+%--------------------KEYWORDS----------------------------------
+
+\input{keywords/keywords-helper}
+
+\input{keywords/keywords-title-page}
+
+\input{keywords/keywords-preface}
+
+\input{keywords/keywords-math}
+
+\input{keywords/keywords-body}
+
+%--------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%---------------------------------------------------------------

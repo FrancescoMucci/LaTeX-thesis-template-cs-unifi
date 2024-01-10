@@ -1,0 +1,104 @@
+%---------------------------------------------------------------
+%       Settings for code related packages for thesis
+%---------------------------------------------------------------
+
+%--------------------LISTING-DOCS---------------------------------
+
+% The package "listing" supports the insertion of code snippets, code segments and listings of stand alone files: snippets are placed inside paragraphs and the others as separate paragraphs.
+
+% The command to create code snippets is "\lstinline[language=<name>]!<insert-code-here>!"; the exclamation marks delimit the code and can be replaced by any character not in the code. 
+
+% The following environment can be used to create source code segments: \begin{lstlisting}[caption={<insert-caption>}, label={<insert-label>}, language=<name>].
+
+% The following command an be used to pretty-print the lines from <x> to <x+y> of the specified files: \lstinputlisting[caption={<insert-caption>}, label={<insert-label>}, language=<name>, firstline=<x>, lastline=<x+y>]{<relative-path>/<file-name>.<ext>}.
+
+%-----------------------------------------------------------------
+
+%--------------------XCOLOR-SETTINGS------------------------------
+
+% The command "\definecolor" is used to define new colours in rgb format that will later be used for code colouring.
+
+% Background color for code segments and listings of stand alone files.
+\definecolor{verylightgray}{rgb}{0.97,0.97,0.97}
+
+%-----------------------------------------------------------------
+
+%--------------------LISTING-SETTINGS-----------------------------
+
+% Setting the caption label for listings (default is "Listing").
+\renewcommand{\lstlistingname}{Codice}
+
+% Setting the header name for the list of listings (default is "Listings").
+\renewcommand{\lstlistlistingname}{Elenco dei codici}
+
+% To group the entries in the list of listings by chapter.
+\AtEndPreamble{\addtocontents{lol}{\protect\killdeactivateaddvspace}}
+
+% UNNECESSARY since we specified the "listings" option for "classicthesis".
+% To include the word "Codice" for each entry in the list of listings.
+%\makeatletter
+%\def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{4em}{Codice #1}{#2}}
+%\makeatother
+% To be precise, we redifined the internal macro "\l@lstlisting" to change the format of each entry using the command "\@dottedtocline" which is normally used internally by LaTeX to format a line in the table of contents and list of figures/tables. 
+% When we define a new listing, these arguments will be passed to "\l@lstlisting":
+% - #1: the pair <number> <caption> of the listing;
+% - #2: <page-number> of the listing.
+% The command "\@dottedtocline" takes the following arguments:
+% - <section-level-num>: the level of the entry (1 for first level, 2 for sub-entry);
+% - <indent>: the entry indentation (0 for no indentation);
+% - <numwidth>: the space between <number> and <caption> of the entry (4em is about 1.6cm);
+% - <text>: the text of the entry (Codice <number> <caption>);
+% - <pagenumber>: the page number associated with the entry.
+
+%-----------------------------------------------------------------
+
+%--------------------LISTING-STYLE-DEFINITION---------------------
+
+% The parameter "language=<name>" enables code highlighting for the particular programming: if the specified language is supported, keywords are in boldface font and comments are italicized. If you don’t like these settings, the "listing" package enable customization of code formatting via style definible using the command "\lstdefinestyle{<style-name>}{<key=value list>}".
+
+\lstdefinestyle{mycodestyle}{
+% Code settings
+	basicstyle      = \footnotesize\ttfamily, % Size and font used for the code.
+	breaklines      = true, % Sets automatic line breaking of long lines.
+	tabsize         = 2, % Sets tabulation as 2 spaces.
+	keepspaces      = true, % Keeps spaces in code, useful for keeping indentation of code.
+% Frame settings
+	frame           = single, % Sets a frame around the code.
+	framerule       = 0pt, % Frame with no rules.
+	backgroundcolor = \color{verylightgray}, % Frame background color.
+	frameround      = ffff, % Straight corner for frame.
+% Line numbers settings
+	numbers         = left, % Print line numbers on the left.
+	numbersep       = 9pt, % Line numbers are 9pt from the code.
+	stepnumber      = 1, % The step between two line numbers it's 1: each line is numbered).
+	numberstyle     = \scriptsize\color{gray}, % Size and color of the line numbers.
+% Caption settings
+    captionpos      = b, % Sets the caption position to bottom.
+    numberbychapter = true, % Sets how listing will be numbered (by chapter or continously).
+% Positioning settings
+	aboveskip       = \bigskipamount, % Sets the vertical space above displayed listings.
+	belowskip       = \smallskipamount % Sets the vertical space below displayed listings.
+}
+
+\lstset{style=mycodestyle}
+% To enables the style "mycodestyle".
+
+%-----------------------------------------------------------------
+
+%--------------------LANGUAGES-HIGHLIGHTING-----------------------
+
+\input{code-highlighting/solidity}
+
+\input{code-highlighting/java}
+
+\input{code-highlighting/html}
+
+%-----------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS-------------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+%-----------------------------------------------------------------
