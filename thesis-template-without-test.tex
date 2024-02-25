@@ -114,16 +114,6 @@
 
 \include{3-appendix/template/scrittura}
 
-\include{3-appendix/template/tests/basic-tests}
-
-\include{3-appendix/template/tests/float-tests}
-
-\include{3-appendix/template/tests/code-tests}
-
-\include{3-appendix/template/tests/math-tests}
-
-\include{3-appendix/template/tests/keywords-tests}
-
 %--------------------------------------------------------------
 
 %---------------------BACK-MATTER------------------------------
@@ -146,10 +136,10 @@
 
 % To resolve all the citation references and generate the bibliography as expected, BibTeX needs some extra compilation steps: assuming our LATEX document is in a file named thesis.tex (and that we are using pdflatex) we need to use the following sequence of commands: pdflatex thesis; bibtex thesis; pdflatex thesis; pdflatex thesis.
 
-\addTocChapter{Indice analitico}
+%\addTocChapter{Indice analitico}
 % To manually add the index entry into the table of contents.
 
-\printindex
+%\printindex
 % To get an analytical index you must first include "\usepackage{imakeidx}", add the "\makeindex" in the document preamble and compile the document, then run the system command "makeindex", and then compile the document again. If you are using a special localization by means of the babel package, the title will be translated accordingly.
 
 \addChapterBookmark{Ringraziamenti}{bookmark:ringraziamenti}

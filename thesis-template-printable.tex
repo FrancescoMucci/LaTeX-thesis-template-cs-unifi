@@ -32,10 +32,10 @@
 
 \include{1-front/title-page-unifi}
 
-\addChapterBookmark{Dedica}{bookmark:dedica}
+%\addChapterBookmark{Dedica}{bookmark:dedica}
 % Although we do not include an entry for the dedication in the table of contents, we create a bookmark for it at level 0. 
 
-\include{1-front/dedica}
+%\include{1-front/dedica}
 
 \pagestyle{scrheadings}
 % The "\pagestyle{style}" declaration specifies how the page headers and footers are typeset, from the current page onwards. With "plain" style the header is empty and the footer contains only a page number, centered. With "empty" style the header and footer are both empty. With "headings" running headers (the chapter title on the left-hand page, and the section title on the right-hand page) and footers are on each page. The "scrheadings" style, from "scrbook" class, is similar to "headings". The second "scrbook" page style is "plain.scrheadings" wich resemble the "plain" style.
@@ -51,27 +51,27 @@
 \tableofcontents
 % The "\tableofcontents" macro is used to request the production of a table of contents. In the book document classes the tables of contents are always set in single-column mode.
 
-\addTocChapter{Acronimi}
+%\addTocChapter{Acronimi}
 % To manually add the acronym entry into the table of contents.
 
-\include{1-front/acronimi}
+%\include{1-front/acronimi}
 
-\addTocChapter{Elenco delle figure}
+%\addTocChapter{Elenco delle figure}
 % To manually add the list of figures entry into the table of contents.
 
-\listoffigures
+%\listoffigures
 % The "\listoffigures" macro is used to request the production of a list of figures.
 
-\addTocChapter{Elenco delle tabelle}
+%\addTocChapter{Elenco delle tabelle}
 % To manually add the list of tables entry into the table of contents.
 
-\listoftables
+%\listoftables
 % The "\listoftables" macro is used to request the production of a list of tables.
 
-\addTocChapter{Elenco dei codici}
+%\addTocChapter{Elenco dei codici}
 % To manually add the list of listing entry into the table of contents.
 
-\lstlistoflistings
+%\lstlistoflistings
 % Using the package "listings" for typesetting source code snippets, you can use the "\lstlistoflistings" macro to request the production of a list of source codes snippets.
 
 %--------------------------------------------------------------
@@ -114,16 +114,6 @@
 
 \include{3-appendix/template/scrittura}
 
-\include{3-appendix/template/tests/basic-tests}
-
-\include{3-appendix/template/tests/float-tests}
-
-\include{3-appendix/template/tests/code-tests}
-
-\include{3-appendix/template/tests/math-tests}
-
-\include{3-appendix/template/tests/keywords-tests}
-
 %--------------------------------------------------------------
 
 %---------------------BACK-MATTER------------------------------
@@ -146,16 +136,16 @@
 
 % To resolve all the citation references and generate the bibliography as expected, BibTeX needs some extra compilation steps: assuming our LATEX document is in a file named thesis.tex (and that we are using pdflatex) we need to use the following sequence of commands: pdflatex thesis; bibtex thesis; pdflatex thesis; pdflatex thesis.
 
-\addTocChapter{Indice analitico}
+%\addTocChapter{Indice analitico}
 % To manually add the index entry into the table of contents.
 
-\printindex
+%\printindex
 % To get an analytical index you must first include "\usepackage{imakeidx}", add the "\makeindex" in the document preamble and compile the document, then run the system command "makeindex", and then compile the document again. If you are using a special localization by means of the babel package, the title will be translated accordingly.
 
-\addChapterBookmark{Ringraziamenti}{bookmark:ringraziamenti}
+%\addChapterBookmark{Ringraziamenti}{bookmark:ringraziamenti}
 % Although we do not include an entry for the acknowledgements in the table of contents, we create a bookmark for it at level 0. 
 
-\include{4-back/ringraziamenti}
+%\include{4-back/ringraziamenti}
 
 %--------------------------------------------------------------
 

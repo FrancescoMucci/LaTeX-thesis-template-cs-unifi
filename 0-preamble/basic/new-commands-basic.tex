@@ -69,7 +69,7 @@
 
 %----------------------ADD-CHAPTER-PDF-BOOKMARK----------------
 
-% We define the "\addChapterBookmark{<text>}{<name>}" command for creates a bookmark for a chapter (at level 0) with the specified <text>. The third argument is name of the internal anchor (so it must be unique).
+% We define the "\addChapterBookmark{<text>}{<name>}" command for creates a bookmark for a chapter (at level 0) with the specified <text>. The second argument is name of the internal anchor (so it must be unique).
 
 \newcommand{\addChapterBookmark}[2]{%
     \smartClearPage%
@@ -77,6 +77,16 @@
 }
 
 % The use of "\clearpage" (or "\cleardoublepage" for double-sided documents) is essential before adding a bookmark for an unnumbered chapter: without it the hyperlink created by the "hyperref" package might incorrectly point to the previous page, rather than to the page where the new chapter actually begins.
+
+%--------------------------------------------------------------
+
+%----------------------ADD-SECTION-PDF-BOOKMARK----------------
+
+% We define the "\addSectionBookmark{<text>}{<name>}" command for creates a bookmark for a section (at level 1) with the specified <text>. The second argument is name of the internal anchor (so it must be unique).
+
+\newcommand{\addSectionBookmark}[2]{%
+    \addPdfBookmark[1]{#1}{#2}%
+}
 
 %--------------------------------------------------------------
 
