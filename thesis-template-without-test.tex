@@ -1,0 +1,166 @@
+%--------------------------------------------------------------
+%                Template for UniFI thesis
+%--------------------------------------------------------------
+
+%--------------------PREAMBLE----------------------------------
+
+\input{0-preamble/preamble-main}
+
+%--------------------------------------------------------------
+
+\begin{document}
+
+%---------------------PARAMETERS-------------------------------
+
+\frenchspacing
+% This causes LaTeX to make spacing after all punctuation, including periods, be the same as the space between words in the middle of a sentence. Using "\nonfrenchspacing" switches back to the default handling in which spacing after most punctuation stretches or shrinks differently than a word space. If your LaTeX document specifies the language being used, for example with the babel package, the necessary settings should be taken care of for you.
+
+\raggedbottom
+% Make all later pages the natural height of the material on that page; no rubber vertical lengths will be stretched. Thus, in a two-sided document the facing pages may be different heights. If however you want "\flushbottom" then you have to ensure that the page content fits in the specified size. For example if your content consists entirely of lines of text on a 15 pt baseline with no stretchy white space between lines or paragraphs, and your text body height is not a multiple of that \baselineskip, then every page will be underfull as TeX cannot achieve the specified size so has to break a line short.
+
+%--------------------------------------------------------------
+
+%---------------------FRONTMATTER------------------------------
+
+% A thesis’s front matter contains such things as the title page, an abstract, a table of contents, a preface, a list of notations, a list of figures and a list of tables. Some of these front matter pages, such as the title page, are traditionally not numbered.
+
+\frontmatter 
+% The "\frontmatter" command makes the pages numbered in lowercase roman, and makes chapters not numbered, although each chapter’s title appears in the table of contents; if you use other sectioning commands here, use the *-version.
+
+\addChapterBookmark{Pagina di titolo}{bookmark:title}
+% Although we do not include an entry for the title page in the table of contents, we create a bookmark for it at level 0. 
+
+\include{1-front/title-page-unifi}
+
+\addChapterBookmark{Dedica}{bookmark:dedica}
+% Although we do not include an entry for the dedication in the table of contents, we create a bookmark for it at level 0. 
+
+\include{1-front/dedica}
+
+\pagestyle{scrheadings}
+% The "\pagestyle{style}" declaration specifies how the page headers and footers are typeset, from the current page onwards. With "plain" style the header is empty and the footer contains only a page number, centered. With "empty" style the header and footer are both empty. With "headings" running headers (the chapter title on the left-hand page, and the section title on the right-hand page) and footers are on each page. The "scrheadings" style, from "scrbook" class, is similar to "headings". The second "scrbook" page style is "plain.scrheadings" wich resemble the "plain" style.
+
+\addChapterBookmark{Prefazione}{bookmark:prefazione}
+% Although we do not include an entry for the preface in the table of contents, we create a bookmark for it at level 0. 
+
+\include{1-front/prefazione}
+
+\addChapterBookmark{Indice}{bookmark:toc}
+% Although we do not include an entry for the table of contents in the table of contents itself, we create a bookmark for it at level 0. 
+
+\tableofcontents
+% The "\tableofcontents" macro is used to request the production of a table of contents. In the book document classes the tables of contents are always set in single-column mode.
+
+\addTocChapter{Acronimi}
+% To manually add the acronym entry into the table of contents.
+
+\include{1-front/acronimi}
+
+\addTocChapter{Elenco delle figure}
+% To manually add the list of figures entry into the table of contents.
+
+\listoffigures
+% The "\listoffigures" macro is used to request the production of a list of figures.
+
+\addTocChapter{Elenco delle tabelle}
+% To manually add the list of tables entry into the table of contents.
+
+\listoftables
+% The "\listoftables" macro is used to request the production of a list of tables.
+
+\addTocChapter{Elenco dei codici}
+% To manually add the list of listing entry into the table of contents.
+
+\lstlistoflistings
+% Using the package "listings" for typesetting source code snippets, you can use the "\lstlistoflistings" macro to request the production of a list of source codes snippets.
+
+%--------------------------------------------------------------
+
+%---------------------MAINMATTER-------------------------------
+
+% A thesis’s main matter contains the chapters of the thesis one of which will be  and another will be a conclusion.
+
+\mainmatter
+% The "\mainmatter" command changes the behavior back to the expected version (numbered chapters), and resets the page number.
+
+\include{2-chapters/introduzione}
+
+\include{2-chapters/preliminari}
+
+\include{2-chapters/approccio}
+
+\include{2-chapters/valutazione}
+
+\include{2-chapters/discussione}
+
+\include{2-chapters/correlati}
+
+\include{2-chapters/conclusioni}
+
+%--------------------------------------------------------------
+
+%---------------------APPENDICES-------------------------------
+
+% At the end of the thesis we can optionally add appendices.
+
+\appendix
+%The "\appendix" command declares that subsequent "\chapter" commands start an appendix: the chapter and section counters will be reseted and characters will be used for numbering them.
+
+\include{3-appendix/codici}
+
+\include{3-appendix/dimostrazioni}
+
+\include{3-appendix/template/compilazione}
+
+\include{3-appendix/template/scrittura}
+
+%--------------------------------------------------------------
+
+%---------------------BACK-MATTER------------------------------
+
+% The back matter may contain such things as a glossary, notes, a bibliography, an index and, optionally, some acknowledgements.
+
+\backmatter
+% The "\backmatter" command leaves the page numbering alone but switches the chapters back to being not numbered.
+
+% To generate the bibliography we rely on BibTex, a tool which comes bundled as standard with LaTeX: using this tool we store all references in a bibliographic file with .bib extension. This file can be referenced in any LaTeX document and can also be split over many files, for example, dividing the bibliography by subtopics.
+
+\bibliographystyle{babunsrt-fl}
+% The "\bibliographystyle{<style>}" command tells BibTeX how to format the information stored in the .bib file. The "babelbib" package is used to adapt the bibliography to the document language, so one of the following styles must be used: "babplain" (integers labels and entries sorted alphabetically), "babunsrt" (like plain, but entries are in order of citation), "bababbrv" (like plain, but with authors forename abbrevieted), and "babalpha" (author-year labels and entries sorted alphabetically). By appending "-fl" all authors names are written "Forename Lastname"; by appending "-lf" all names are written "Lastname, Forename".
+
+\addTocChapter{Bibliografia}
+% To manually add the bibliography entry into the table of contents.
+
+\bibliography{4-back/bibliography/biblio-example,4-back/bibliography/biblio-cs-thesis-structure,4-back/bibliography/biblio-cs-knowledge,4-back/bibliography/biblio-latex}
+% The command "\bibliography{<bib-file1>,<bib-file2>,...,<bib-fileN>}" specifies the .bib files you wish to use.
+
+% To resolve all the citation references and generate the bibliography as expected, BibTeX needs some extra compilation steps: assuming our LATEX document is in a file named thesis.tex (and that we are using pdflatex) we need to use the following sequence of commands: pdflatex thesis; bibtex thesis; pdflatex thesis; pdflatex thesis.
+
+%\addTocChapter{Indice analitico}
+% To manually add the index entry into the table of contents.
+
+%\printindex
+% To get an analytical index you must first include "\usepackage{imakeidx}", add the "\makeindex" in the document preamble and compile the document, then run the system command "makeindex", and then compile the document again. If you are using a special localization by means of the babel package, the title will be translated accordingly.
+
+\addChapterBookmark{Ringraziamenti}{bookmark:ringraziamenti}
+% Although we do not include an entry for the acknowledgements in the table of contents, we create a bookmark for it at level 0. 
+
+\include{4-back/ringraziamenti}
+
+%--------------------------------------------------------------
+
+%--------------------------------------------------------------
+
+\end{document}
+
+%--------------------------------------------------------------
+
+%--------------------SOURCES-FOR-COMMENTS----------------------
+
+% The comments on LaTeX and its commands are based on the contents of https://latexref.xyz/, an unofficial reference manual for the LaTeX2e document preparation system.
+
+% The comments on the classes, styles or packages (and their commands and options) come from the description provided on CTAN (https://www.ctan.org/) and from the official documentation of the different classes, styles or packages.
+
+% As far as comments on BibTex are concerned, the main source is the following: https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management.
+
+%--------------------------------------------------------------
